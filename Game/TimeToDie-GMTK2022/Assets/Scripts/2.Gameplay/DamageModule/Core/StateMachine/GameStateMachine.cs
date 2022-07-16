@@ -12,8 +12,7 @@ public class GameStateMachine : MonoBehaviour
 
     [Header("GameContext")]
     public Transform UI;
-    public InputManager InputManager;
-    public PlayerStateMachine player;
+    public PlayerStateMachine Player;
     private void Awake()
     {
         if (Singleton == null)

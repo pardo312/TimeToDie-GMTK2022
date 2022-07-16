@@ -15,8 +15,8 @@ public class MovementState : PlayerStateBase
 
     public override void ProcessInput(Vector2 movement, Vector2 look)
     {
-        player.AnimationBaseController.Animator.SetFloat(verticalHash, movement.y);
-        player.AnimationBaseController.Animator.SetFloat(horizontalHash, movement.x);
+    //    player.AnimationBaseController.Animator.SetFloat(verticalHash, movement.y);
+    //    player.AnimationBaseController.Animator.SetFloat(horizontalHash, movement.x);
     }
 
     public override void ReceivedEvent(PlayerStateMachine.Buttons buttons)

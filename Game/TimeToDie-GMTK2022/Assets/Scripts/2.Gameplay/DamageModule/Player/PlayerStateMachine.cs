@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerStateMachine : CharacterStateMachine
 {
     [SerializeField] private PlayerStateBase currentState;
-    public AnimationBasedCharacterController AnimationBaseController;
+    public Rigidbody RigidBody;
 
     public void SetState(PlayerStateBase state)
     {
@@ -18,18 +18,12 @@ public class PlayerStateMachine : CharacterStateMachine
     {
         SetState(new PlayerDisableState(this));
         GameStateMachine.Singleton.OnGameStateChanged += HandleLevelStageChanged;
-        GameStateMachine.Singleton.InputManager.OnFireCallback += ()=>OnJoystickChange(Buttons.Aiming);
-    }
-
-    private void Start()
-    {
-        AnimationBaseController.Init();
     }
 
     private void Update()
     {
         currentState.UpdateState();
-        currentState.ProcessInput(GameStateMachine.Singleton.InputManager.Move, GameStateMachine.Singleton.InputManager.Look);
+        currentState.ProcessInput(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")), Input.mousePosition);
     }
 
     private void OnJoystickChange(Buttons button)

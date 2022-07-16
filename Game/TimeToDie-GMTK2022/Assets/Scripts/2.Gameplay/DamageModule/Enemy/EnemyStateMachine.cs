@@ -7,7 +7,7 @@ public class EnemyStateMachine : CharacterStateMachine
 {
     public Transform targetPosition, headPosition;
     public NavMeshPath path;
-    public Rigidbody rigidbody;
+    public Rigidbody RigidBody;
     [Header("Animation")]
     public int hashVelocity;
     public int hashAttack, hashSpecialAttack, hashTurn;

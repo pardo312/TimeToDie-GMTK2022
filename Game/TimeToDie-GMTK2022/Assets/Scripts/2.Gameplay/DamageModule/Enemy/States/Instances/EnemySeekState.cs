@@ -25,7 +25,7 @@ public class EnemySeekState : EnemyStateBase
 
     public override void UpdateState()
     {
-        Ray seekPlayer = new Ray(enemy.headPosition.position,GameStateMachine.Singleton.player.transform.position - enemy.headPosition.position);
+        Ray seekPlayer = new Ray(enemy.headPosition.position,GameStateMachine.Singleton.Player.transform.position - enemy.headPosition.position);
         Debug.DrawRay(seekPlayer.origin, seekPlayer.direction, Color.green, 0.1f);
         RaycastHit result;
         Physics.Raycast(seekPlayer, out result);
@@ -33,7 +33,7 @@ public class EnemySeekState : EnemyStateBase
         {
             if (result.collider.CompareTag("Player"))
             {
-                AlignBody(GameStateMachine.Singleton.player.transform.position);
+                AlignBody(GameStateMachine.Singleton.Player.transform.position);
             }
             else
             {
@@ -86,7 +86,7 @@ public class EnemySeekState : EnemyStateBase
 
     public void SearchRouteToPlayer()
     {
-        NavMesh.CalculatePath(enemy.transform.position, GameStateMachine.Singleton.player.transform.position, NavMesh.AllAreas, enemy.path);
+        NavMesh.CalculatePath(enemy.transform.position, GameStateMachine.Singleton.Player.transform.position, NavMesh.AllAreas, enemy.path);
         timeBetweenSearch = Time.time + 1;
     }
 }
