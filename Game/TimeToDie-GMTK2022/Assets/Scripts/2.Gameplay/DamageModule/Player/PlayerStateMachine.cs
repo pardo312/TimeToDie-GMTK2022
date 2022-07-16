@@ -11,6 +11,7 @@ public class PlayerStateMachine : CharacterStateMachine
     public GameObject Indicator;
     public int currentWeapon;
     public List<WeaponBase> Weapons;
+    public List<float> WeaponDuration;
     public List<int> attackHashes;
     [SerializeField] Transform weaponParent;
 

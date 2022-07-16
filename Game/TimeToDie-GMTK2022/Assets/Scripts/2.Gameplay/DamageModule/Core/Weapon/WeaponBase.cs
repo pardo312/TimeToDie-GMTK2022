@@ -15,11 +15,10 @@ public class WeaponBase : MonoBehaviour
     float currentCooldown;
     public virtual int Attack()
     {
-        Debug.Log("attack");
         if (!(currentCooldown - Time.time < 0))
             return -1;
         StartCoroutine(WaitAnimation(()=>{
-            hitResult = Physics.BoxCastAll(damagePoint.position, damagePoint.forward / 2, damagePoint.forward);
+            hitResult = Physics.BoxCastAll(damagePoint.position, Vector3.one / 2, damagePoint.up);
             foreach (var hit in hitResult)
             {
                 IDamageable damageable = hit.collider.GetComponent<IDamageable>();
@@ -28,8 +27,8 @@ public class WeaponBase : MonoBehaviour
                     damageable.AddDamage(Damage);
                 }
             }
-            currentCooldown += Time.time + weaponStats.Cooldown;
         },animationTime));
+        currentCooldown = Time.time + weaponStats.Cooldown;
         return animationIndex;
     }
 

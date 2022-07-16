@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerAttackState: PlayerStateBase
 {
-    public PlayerAttackState(PlayerStateMachine player) : base(player)
+    float animDuration;
+    public PlayerAttackState(PlayerStateMachine player, int animHash, float animDuration) : base(player)
     {
-        player.animator.Play(player.attackHashes[player.Weapons[player.currentWeapon].Attack()]);
+        player.RigidBody.velocity = Vector3.zero;
+        player.animator.Play(animHash);
+        this.animDuration = animDuration;
         player.StartCoroutine(MovementAfterTime());
     }
 
@@ -22,8 +25,7 @@ public class PlayerAttackState: PlayerStateBase
 
     IEnumerator MovementAfterTime()
     {
-        Debug.Log(player.animator.GetCurrentAnimatorClipInfo(0).LongLength);
-        yield return new WaitForSeconds(player.animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(animDuration);
         player.SetState(new MovementState(player));
     }
 

@@ -26,7 +26,11 @@ public class MovementState : PlayerStateBase
     {
         if(buttons == PlayerStateMachine.Buttons.Attack)
         {
-            player.SetState(new PlayerAttackState(player));
+            int currentHash = player.attackHashes[player.Weapons[player.currentWeapon].Attack()];
+            if (currentHash != -1)
+            {
+                player.SetState(new PlayerAttackState(player, currentHash, player.WeaponDuration[player.currentWeapon]));
+            }
         }
     }
 
