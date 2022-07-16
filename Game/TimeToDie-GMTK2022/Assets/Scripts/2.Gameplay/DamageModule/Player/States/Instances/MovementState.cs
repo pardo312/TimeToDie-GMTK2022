@@ -26,7 +26,7 @@ public class MovementState : PlayerStateBase
     {
         if(buttons == PlayerStateMachine.Buttons.Attack)
         {
-            player.Weapons[player.currentWeapon].Attack();
+            player.SetState(new PlayerAttackState(player));
         }
     }
 

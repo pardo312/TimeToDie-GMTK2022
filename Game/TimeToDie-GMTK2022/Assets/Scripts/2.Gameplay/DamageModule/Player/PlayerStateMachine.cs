@@ -11,6 +11,7 @@ public class PlayerStateMachine : CharacterStateMachine
     public GameObject Indicator;
     public int currentWeapon;
     public List<WeaponBase> Weapons;
+    public List<int> attackHashes;
     [SerializeField] Transform weaponParent;
 
     public void SetState(PlayerStateBase state)
@@ -22,6 +23,7 @@ public class PlayerStateMachine : CharacterStateMachine
     private void Start()
     {
         Weapons = new List<WeaponBase>(weaponParent.GetComponentsInChildren<WeaponBase>());
+        attackHashes.Add(Animator.StringToHash("SwordAttack"));
     }
 
     private void Awake()
@@ -30,12 +32,16 @@ public class PlayerStateMachine : CharacterStateMachine
         GameStateMachine.Singleton.OnGameStateChanged += HandleLevelStageChanged;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        currentState.UpdateState();
         RaycastHit Scenary;
         Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out Scenary, 100, LayerMask.GetMask("Ground"));
         currentState.ProcessInput(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")), Scenary.point);
+    }
+
+    private void Update()
+    {
+        currentState.UpdateState();
         if (Input.GetKeyDown(KeyCode.Mouse0))
             OnJoystickChange(Buttons.Attack);
     }

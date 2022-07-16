@@ -5,16 +5,23 @@ using UnityEngine;
 public class Sword : WeaponBase
 {
     [SerializeField] float backForce;
-    public override void Attack()
+    public override int Attack()
     {
-        base.Attack();
-        foreach (var hit in hitResult)
+        if (base.Attack() != -1)
         {
-            Rigidbody enemyRigid = hit.collider.GetComponent<Rigidbody>();
-            if (enemyRigid != null)
+            StartCoroutine(WaitAnimation(() =>
             {
-                enemyRigid.AddForce(transform.forward * backForce, ForceMode.Impulse);
-            }
+                foreach (var hit in hitResult)
+                {
+                    Rigidbody enemyRigid = hit.collider.GetComponent<Rigidbody>();
+                    if (enemyRigid != null)
+                    {
+                        enemyRigid.AddForce(transform.forward * backForce, ForceMode.Impulse);
+                    }
+                }
+            }, animationTime));
+            return animationIndex;
         }
+        return -1;
     }
 }

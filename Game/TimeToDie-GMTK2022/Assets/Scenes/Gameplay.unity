@@ -4429,6 +4429,7 @@ MonoBehaviour:
   Indicator: {fileID: 1807014279}
   currentWeapon: 0
   Weapons: []
+  attackHashes: 
   weaponParent: {fileID: 1370460484}
 --- !u!1001 &1379782150
 PrefabInstance:
@@ -5764,7 +5765,9 @@ MonoBehaviour:
     Cooldown: 2
   damagePoint: {fileID: 1723715672}
   debug: 1
-  backForce: 100
+  animationTime: 0.6
+  animationIndex: 0
+  backForce: 600
 --- !u!1 &1723715671
 GameObject:
   m_ObjectHideFlags: 0
@@ -5789,7 +5792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723715671}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.81, z: 1.43}
+  m_LocalPosition: {x: 0, y: 0.81, z: 1.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6771,7 +6774,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1420233, y: 1}
+    m_SensorSize: {x: 1.0252918, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
