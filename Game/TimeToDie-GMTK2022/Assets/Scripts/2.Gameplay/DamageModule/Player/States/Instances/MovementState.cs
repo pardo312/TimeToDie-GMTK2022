@@ -15,12 +15,9 @@ public class MovementState : PlayerStateBase
 
     public override void ProcessInput(Vector2 movement, Vector3 look)
     {
-        //player.transform.LookAt(look);
         player.Indicator.transform.position = look;
         player.RigidBody.velocity = (player.transform.forward * movement.y + player.transform.right * movement.x).normalized * player.Velocity * 100 * Time.deltaTime;
-        player.transform.LookAt(look);
-    //    player.AnimationBaseController.Animator.SetFloat(verticalHash, movement.y);
-    //    player.AnimationBaseController.Animator.SetFloat(horizontalHash, movement.x);
+        player.transform.LookAt(new Vector3(look.x,player.transform.position.y,look.z));
     }
 
     public override void ReceivedEvent(PlayerStateMachine.Buttons buttons)

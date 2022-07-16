@@ -25,7 +25,9 @@ public class PlayerStateMachine : CharacterStateMachine
     private void Update()
     {
         currentState.UpdateState();
-        currentState.ProcessInput(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")), Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        RaycastHit Scenary;
+        Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out Scenary, 100, LayerMask.GetMask("Ground"));
+        currentState.ProcessInput(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")), Scenary.point);
     }
 
     private void OnJoystickChange(Buttons button)
