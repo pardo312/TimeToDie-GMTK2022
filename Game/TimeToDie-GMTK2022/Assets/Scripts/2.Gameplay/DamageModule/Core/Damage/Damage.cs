@@ -11,7 +11,8 @@ public class Damage
     public float amount;
     public virtual void CalculateDamage()
     {
-
+        target.TakeDamage(amount);
+        isOver = true;
     }
 }
 
