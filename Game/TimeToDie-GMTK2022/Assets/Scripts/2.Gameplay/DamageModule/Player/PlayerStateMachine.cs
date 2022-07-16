@@ -9,11 +9,19 @@ public class PlayerStateMachine : CharacterStateMachine
     public Stats Stats;
     public Rigidbody RigidBody;
     public GameObject Indicator;
+    public int currentWeapon;
+    public List<WeaponBase> Weapons;
+    [SerializeField] Transform weaponParent;
 
     public void SetState(PlayerStateBase state)
     {
         currentState = state;
         stateName = currentState.ToString();
+    }
+
+    private void Start()
+    {
+        Weapons = new List<WeaponBase>(weaponParent.GetComponentsInChildren<WeaponBase>());
     }
 
     private void Awake()
@@ -28,6 +36,8 @@ public class PlayerStateMachine : CharacterStateMachine
         RaycastHit Scenary;
         Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out Scenary, 100, LayerMask.GetMask("Ground"));
         currentState.ProcessInput(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")), Scenary.point);
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            OnJoystickChange(Buttons.Attack);
     }
 
     private void OnJoystickChange(Buttons button)
@@ -70,7 +80,7 @@ public class PlayerStateMachine : CharacterStateMachine
     public enum Buttons
     {
         Aiming,
-        Jump,
+        Attack,
         Ragdoll
     }
 }

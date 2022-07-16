@@ -24,7 +24,10 @@ public class MovementState : PlayerStateBase
 
     public override void ReceivedEvent(PlayerStateMachine.Buttons buttons)
     {
-
+        if(buttons == PlayerStateMachine.Buttons.Attack)
+        {
+            player.Weapons[player.currentWeapon].Attack();
+        }
     }
 
     public override void UpdateState()
