@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Damage
 {
     public IDamageable target;
@@ -10,7 +11,7 @@ public class Damage
     public float amount;
     public virtual void CalculateDamage()
     {
-        
+
     }
 }
 
