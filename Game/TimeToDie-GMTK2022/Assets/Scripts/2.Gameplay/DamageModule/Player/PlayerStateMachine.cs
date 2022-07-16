@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerStateMachine : CharacterStateMachine
 {
     [SerializeField] private PlayerStateBase currentState;
-    public float Velocity;
+    public Stats Stats;
     public Rigidbody RigidBody;
     public GameObject Indicator;
 
