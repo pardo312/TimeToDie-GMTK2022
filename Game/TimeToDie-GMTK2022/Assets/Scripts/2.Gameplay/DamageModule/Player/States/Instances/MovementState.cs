@@ -13,8 +13,12 @@ public class MovementState : PlayerStateBase
         horizontalHash = Animator.StringToHash("isRotating");
     }
 
-    public override void ProcessInput(Vector2 movement, Vector2 look)
+    public override void ProcessInput(Vector2 movement, Vector3 look)
     {
+        //player.transform.LookAt(look);
+        player.Indicator.transform.position = look;
+        player.RigidBody.velocity = (player.transform.forward * movement.y + player.transform.right * movement.x).normalized * player.Velocity * 100 * Time.deltaTime;
+        player.transform.LookAt(look);
     //    player.AnimationBaseController.Animator.SetFloat(verticalHash, movement.y);
     //    player.AnimationBaseController.Animator.SetFloat(horizontalHash, movement.x);
     }
@@ -26,5 +30,6 @@ public class MovementState : PlayerStateBase
 
     public override void UpdateState()
     {
+
     }
 }

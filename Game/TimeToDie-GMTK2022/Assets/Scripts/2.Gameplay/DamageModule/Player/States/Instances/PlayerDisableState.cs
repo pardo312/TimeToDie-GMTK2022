@@ -8,7 +8,7 @@ public class PlayerDisableState : PlayerStateBase
     {
     }
 
-    public override void ProcessInput(Vector2 movement, Vector2 look)
+    public override void ProcessInput(Vector2 movement, Vector3 look)
     {
 
     }

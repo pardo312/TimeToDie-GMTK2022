@@ -28,6 +28,12 @@ public class GameStateMachine : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(StartGameRoutine());
+    }
+
+    IEnumerator StartGameRoutine()
+    {
+        yield return new WaitForEndOfFrame();
         StartGame();
     }
 

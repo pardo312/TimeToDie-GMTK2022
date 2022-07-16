@@ -10,7 +10,7 @@ public class EnemySeekState : EnemyStateBase
     public EnemySeekState(EnemyStateMachine enemy) : base(enemy)
     {
         this.enemy = enemy;
-        NavMesh.CalculatePath(enemy.transform.position, enemy.targetPosition.transform.position, NavMesh.AllAreas, enemy.path);
+        //NavMesh.CalculatePath(enemy.transform.position, enemy.targetPosition.transform.position, NavMesh.AllAreas, enemy.path);
     }
 
     public override void ProcessInput(Vector2 movement, Vector2 look)
@@ -25,40 +25,7 @@ public class EnemySeekState : EnemyStateBase
 
     public override void UpdateState()
     {
-        Ray seekPlayer = new Ray(enemy.headPosition.position,GameStateMachine.Singleton.Player.transform.position - enemy.headPosition.position);
-        Debug.DrawRay(seekPlayer.origin, seekPlayer.direction, Color.green, 0.1f);
-        RaycastHit result;
-        Physics.Raycast(seekPlayer, out result);
-        if (result.collider != null)
-        {
-            if (result.collider.CompareTag("Player"))
-            {
-                AlignBody(GameStateMachine.Singleton.Player.transform.position);
-            }
-            else
-            {
-                if (timeBetweenSearch - Time.time > 0 && searchingRoute < enemy.path.corners.Length)
-                {
-                    if (enemy.path.corners[searchingRoute].magnitude < 0.2f)
-                    {
-                        searchingRoute += 1;
-                    }
-                    AlignBody(enemy.path.corners[searchingRoute]);
-                    for (int i = 0; i < enemy.path.corners.Length - 1; i++)
-                        Debug.DrawLine(enemy.path.corners[i], enemy.path.corners[i + 1], Color.red);
-                }
-                else
-                {
-                    SearchRouteToPlayer();
-                    searchingRoute = 0;
-                }
-            }
-        }
-        else
-        {
-            enemy.animator.SetFloat(enemy.hashVelocity, 0);
-            enemy.animator.SetFloat(enemy.hashTurn, 0);
-        }
+
     }
 
     public void AlignBody(Vector3 targetPosition)

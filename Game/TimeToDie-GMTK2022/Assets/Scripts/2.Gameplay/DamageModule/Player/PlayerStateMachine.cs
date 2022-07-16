@@ -6,7 +6,9 @@ using UnityEngine;
 public class PlayerStateMachine : CharacterStateMachine
 {
     [SerializeField] private PlayerStateBase currentState;
+    public float Velocity;
     public Rigidbody RigidBody;
+    public GameObject Indicator;
 
     public void SetState(PlayerStateBase state)
     {
@@ -23,7 +25,7 @@ public class PlayerStateMachine : CharacterStateMachine
     private void Update()
     {
         currentState.UpdateState();
-        currentState.ProcessInput(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")), Input.mousePosition);
+        currentState.ProcessInput(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")), Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
     private void OnJoystickChange(Buttons button)
