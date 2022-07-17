@@ -8,16 +8,20 @@ namespace TimeToDie
 {
     public class BoardController : MonoBehaviour
     {
+        [Header("Cards")]
         public SpawnEnemyCardsOnBoard enemyCards;
+        public ShowEnemyCard showEnemyCard;
+
+        [Header("Cams/UI")]
         public CameraController camController;
         public CanvasGroup mainMenu;
-        public ShowEnemyCard showEnemyCard;
         public GameObject collidersMap;
 
+        [Header("Dices")]
         public List<DiceRoll> dicesPrefab;
         public List<DiceRoll> currentDiceGroup;
-        public int currentDie;
         public List<Transform> dicePositions;
+        public int currentDie;
 
         public void InitPlay()
         {
@@ -47,7 +51,7 @@ namespace TimeToDie
             yield return new WaitForSeconds(2);
 
             camController.ChangeCamera(CamerasBoard.FOCUS_CAM);
-            showEnemyCard.Init(camController);
+            showEnemyCard.Init(camController,currentDiceGroup.Count);
             enemyCards.SpawnEnemyCards(() =>
             {
                 currentDiceGroup.ForEach(die =>
@@ -75,16 +79,25 @@ namespace TimeToDie
              {
                  collidersMap.SetActive(false);
                  camController.ChangeCamera(CamerasBoard.SHOW_ENEMY_CARD_CAM);
-                 showEnemyCard.SetCardInPosition(dieNumber, other, die, (enemyIndex) =>
-                   {
-                       //Next die
-                       currentDie++;
-                       currentDiceGroup[currentDie].useMouseInput = true;
-                       camController.ChangeTarget(currentDiceGroup[currentDie].transform);
-                       collidersMap.SetActive(true);
-                   });
+                 showEnemyCard.SetCardInPosition(dieNumber, other, die, OnCardShowned, OnEnemiesSelected);
              }));
         }
+
+        public void OnCardShowned(int enemyIndex)
+        {
+            //Next die
+            currentDie++;
+            currentDiceGroup[currentDie].useMouseInput = true;
+            camController.ChangeTarget(currentDiceGroup[currentDie].transform);
+            collidersMap.SetActive(true);
+        }
+
+        public void OnEnemiesSelected(List<EnemyData> enemiesData)
+        {
+            //Fade to black
+            Debug.Log("Enemies selected.");
+        }
+
         IEnumerator WaitForSeconds(float seconds, Action callback)
         {
             yield return new WaitForSeconds(seconds);

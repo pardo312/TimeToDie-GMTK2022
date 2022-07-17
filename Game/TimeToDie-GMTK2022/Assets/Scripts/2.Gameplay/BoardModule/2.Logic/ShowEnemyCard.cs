@@ -16,7 +16,6 @@ namespace TimeToDie
         private int maxPosition = 10000;
         private CameraController camController;
         private List<EnemyData> enemiesData = new List<EnemyData>();
-        public Action<List<EnemyData>> onEndSelectingEnemies;
         #endregion ----Fields----
 
         #region ----Methods----
@@ -27,7 +26,7 @@ namespace TimeToDie
             enemiesData = new List<EnemyData>();
         }
 
-        public void SetCardInPosition(int dieNumber, Collision other, DiceRoll die, Action<int> onFinishShowingEnemy)
+        public void SetCardInPosition(int dieNumber, Collision other, DiceRoll die, Action<int> onFinishShowingEnemy, Action<List<EnemyData>> onEndSelectingEnemies)
         {
             if (currentPosition < listOfCardsPositions.Count)
             {
@@ -37,13 +36,12 @@ namespace TimeToDie
                     SpawnEnemyInCard(listOfCardsPositions[currentPosition], (enemyIndex) =>
                     {
                         currentPosition++;
-                        if (currentPosition > listOfCardsPositions.Count || currentPosition >= maxPosition)
+                        enemiesData.Add(new EnemyData() { enemyType = enemyIndex, numberOfEnemies = dieNumber });
+
+                        if (currentPosition >= listOfCardsPositions.Count || currentPosition >= maxPosition)
                             onEndSelectingEnemies?.Invoke(enemiesData);
                         else
-                        {
-                            enemiesData.Add(new EnemyData() { enemyType = enemyIndex, numberOfEnemies = dieNumber });
                             onFinishShowingEnemy?.Invoke(enemyIndex);
-                        }
                     });
                 });
             }

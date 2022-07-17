@@ -161,12 +161,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7617200666324278905}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &78000273 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4374497189589487680, guid: 17d80bc5e45dc1240a63578fb77d7bfe,
-    type: 3}
-  m_PrefabInstance: {fileID: 7617200666324278905}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &125163656
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,9 +722,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCards: {fileID: 1883382011}
+  showEnemyCard: {fileID: 1883382013}
   camController: {fileID: 125163660}
   mainMenu: {fileID: 1019752579}
-  showEnemyCard: {fileID: 1883382013}
   collidersMap: {fileID: 1125687315}
   dicesPrefab:
   - {fileID: 2730172968876025708, guid: ee837c0f12f5d6a42a137c206c58e397, type: 3}
@@ -739,13 +733,10 @@ MonoBehaviour:
   - {fileID: 7018347158109412293, guid: 3e8cd967f0cca0d4b819a75ddfeef428, type: 3}
   - {fileID: 7788773875932240908, guid: 44f339d1591714847a3676fbd596c0a1, type: 3}
   currentDiceGroup: []
-  currentDie: 0
   dicePositions:
   - {fileID: 1077430669}
   - {fileID: 1974457626}
-  - {fileID: 1527329818}
-  - {fileID: 826286605}
-  - {fileID: 78000273}
+  currentDie: 0
 --- !u!4 &316411783
 Transform:
   m_ObjectHideFlags: 0
@@ -1611,12 +1602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &826286605 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6266597662869355657, guid: 17d80bc5e45dc1240a63578fb77d7bfe,
-    type: 3}
-  m_PrefabInstance: {fileID: 7617200666324278905}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &836049965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2803,12 +2788,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2ee4cecb7ad921409a71f6b767731f8, type: 3}
---- !u!4 &1527329818 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4534726212276814395, guid: 17d80bc5e45dc1240a63578fb77d7bfe,
-    type: 3}
-  m_PrefabInstance: {fileID: 7617200666324278905}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1650661436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8291873868340672130, guid: 17d80bc5e45dc1240a63578fb77d7bfe,
