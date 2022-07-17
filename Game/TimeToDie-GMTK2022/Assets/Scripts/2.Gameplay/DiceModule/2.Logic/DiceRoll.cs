@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 namespace TimeToDie
 {
 
@@ -11,10 +11,14 @@ namespace TimeToDie
         private const float POS_Y_PICKUP_DIE = 1.213232f;
         public DiceAngleSO diceAngles;
         public int dieRoll;
+        public bool useMouseInput = false;
         public float epsilonDeg = 1;
+        public Action<int, Collision> onDiceRolled;
 
         private Camera cam;
+        private Rigidbody rb;
         private bool shouldRotate = false;
+        private bool ready = false;
         #endregion ----Fields----
 
         #region ----Methods---
@@ -22,16 +26,21 @@ namespace TimeToDie
         public void Awake()
         {
             cam = Camera.main;
+            rb = GetComponent<Rigidbody>();
         }
 
         public void Update()
         {
-            DieToMouse();
-            if (transform.hasChanged && !shouldRotate)
-            {
-                dieRoll = GetRollOfDie(transform.up);
-                transform.hasChanged = false;
-            }
+            if (!ready)
+                return;
+
+            if (useMouseInput)
+                DieToMouse();
+        }
+
+        public void Init()
+        {
+            ready = true;
         }
         #endregion <<<Unity Methods>>>
 
@@ -41,36 +50,56 @@ namespace TimeToDie
             var mousePositionInWorld = cam.ScreenToViewportPoint(Input.mousePosition);
 
             if (Input.GetMouseButtonDown(0))
-                GetComponent<Rigidbody>().isKinematic = true;
-
-            if (Input.GetMouseButton(0))
             {
-                float valueX = DeClamp(0, 1, -1.5f, 1.3f, mousePositionInWorld.x);
-                float valueY = DeClamp(1, 0, -7.3f, -8.1f, mousePositionInWorld.y);
+                rb.isKinematic = true;
+                if (waitToStopCoroutine == null)
+                    return;
+                StopCoroutine(waitToStopCoroutine);
+                waitToStopCoroutine = null;
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                float valueX = DeClamp(.2f, .6f, -.6f, .3f, Mathf.Clamp(mousePositionInWorld.x, .2f, .6f));
+                float valueY = DeClamp(.4f, .8f, -7.7f, -7f, Mathf.Clamp(mousePositionInWorld.y, .4f, .8f));
                 this.transform.localPosition = new Vector3(valueX, POS_Y_PICKUP_DIE, valueY);
-                shouldRotate = true;
+                this.transform.rotation = UnityEngine.Random.rotation;
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                rb.isKinematic = false;
+                waitToStopCoroutine = StartCoroutine(WaitForDieToStop());
+            }
+        }
+        Coroutine waitToStopCoroutine = null;
+
+        public IEnumerator WaitForDieToStop()
+        {
+
+            yield return new WaitUntil(() => currentCollision != null);
+            while (currentCollision != null)
+            {
+                currentCollision = null;
+                yield return new WaitForSeconds(1);
             }
 
-            if (Input.GetMouseButtonUp(0))
-                GetComponent<Rigidbody>().isKinematic = false;
+            dieRoll = GetRollOfDie(transform.up);
+            onDiceRolled?.Invoke(dieRoll, currentCollision);
+            currentCollision = null;
 
-            if (shouldRotate)
-                this.transform.rotation = Random.rotation;
+        }
+        private Collision currentCollision = null;
+        private void OnCollisionEnter(Collision other)
+        {
+            currentCollision = other;
         }
 
         public float DeClamp(float OldMin, float OldMax, float NewMin, float NewMax, float valueToTest)
         {
-
             float OldRange = (OldMax - OldMin);
             float NewRange = (NewMax - NewMin);
             float NewValue = (((valueToTest - OldMin) * NewRange) / OldRange) + NewMin;
 
             return (NewValue);
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            shouldRotate = false;
         }
         #endregion <<<Dice to mouse>>>
 
