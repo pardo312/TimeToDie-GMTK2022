@@ -27,7 +27,7 @@ namespace TimeToDie
         public List<DiceRoll> currentDiceGroup;
         public List<Transform> dicePositions;
         public int currentDie;
-        public void Awake()
+        public void Start()
         {
             if (DataManager.instance.currentLevel != -1)
             {

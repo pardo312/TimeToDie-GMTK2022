@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 8472456553498618975}
   - component: {fileID: 8472456553498618972}
   m_Layer: 7
-  m_Name: SwordEnemy
+  m_Name: Mantis_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
