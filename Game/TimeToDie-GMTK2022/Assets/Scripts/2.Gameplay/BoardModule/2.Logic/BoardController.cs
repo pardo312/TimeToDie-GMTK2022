@@ -1,3 +1,4 @@
+using Jiufen.Audio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,11 +36,17 @@ namespace TimeToDie
                 mainMenu.gameObject.SetActive(false);
                 StartCoroutine(GivePlayerGroupOfDice());
             }
+            StartCoroutine(PlayMusic());
+        }
+        public IEnumerator PlayMusic()
+        {
+            AudioManager.PlayAudio("OST_BOARD_LONG");
+            yield return new WaitForSeconds(48);
+            AudioManager.PlayAudio("OST_BOARD_SHORT", new AudioJobOptions() { loop = true });
         }
 
         public void InitPlay()
         {
-
             StartCoroutine(HideMainMenu(() =>
                 StartCoroutine(GivePlayerGroupOfDice())
             ));
