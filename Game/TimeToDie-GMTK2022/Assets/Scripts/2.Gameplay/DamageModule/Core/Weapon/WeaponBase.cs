@@ -8,6 +8,7 @@ public class WeaponBase : MonoBehaviour
     [SerializeField] protected Damage Damage;
     [SerializeField] protected WeaponStats weaponStats;
     [SerializeField] protected Transform damagePoint;
+    [SerializeField] protected Transform ArmVisual;
     [SerializeField] bool debug;
     [SerializeField] protected float animationTime;
     [SerializeField] protected int animationIndex;
@@ -30,6 +31,18 @@ public class WeaponBase : MonoBehaviour
         },animationTime));
         currentCooldown = Time.time + weaponStats.Cooldown;
         return animationIndex;
+    }
+
+    public void EnableVisual(bool state)
+    {
+        if (state)
+        {
+            ArmVisual.gameObject.SetActive(true);
+        }
+        else
+        {
+            ArmVisual.gameObject.SetActive(false);
+        }
     }
 
     public IEnumerator WaitAnimation(Action callback, float time)

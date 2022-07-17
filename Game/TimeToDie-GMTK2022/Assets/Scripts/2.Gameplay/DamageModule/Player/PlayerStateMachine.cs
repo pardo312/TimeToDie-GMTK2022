@@ -9,11 +9,14 @@ public class PlayerStateMachine : CharacterStateMachine
     public Stats Stats;
     public Rigidbody RigidBody;
     public GameObject Indicator;
+    [Header("Weapons")]
     public int currentWeapon;
     public List<WeaponBase> Weapons;
     public List<float> WeaponDuration;
     public List<int> attackHashes;
     [SerializeField] Transform weaponParent;
+    [SerializeField] float timeBetweenChanges;
+    float currentTimeBetweenChanges = 0.1f;
 
     public void SetState(PlayerStateBase state)
     {
@@ -46,11 +49,30 @@ public class PlayerStateMachine : CharacterStateMachine
         currentState.UpdateState();
         if (Input.GetKeyDown(KeyCode.Mouse0))
             OnJoystickChange(Buttons.Attack);
+        if (currentTimeBetweenChanges - Time.time < 0)
+            SwapWeapons();
     }
 
     private void OnJoystickChange(Buttons button)
     {
         currentState.ReceivedEvent(button);
+    }
+
+    public void SwapWeapons()
+    {
+        Debug.Log("Swap Weapons!");
+        currentTimeBetweenChanges = Time.time + timeBetweenChanges;
+        int random = UnityEngine.Random.Range(0, Weapons.Count);
+        currentWeapon = random;
+        for (int i = 0; i < Weapons.Count; i++)
+        {
+            if (i == random)
+            {
+                Weapons[i].EnableVisual(true);
+            }
+            else
+                Weapons[i].EnableVisual(false);
+        }
     }
 
 

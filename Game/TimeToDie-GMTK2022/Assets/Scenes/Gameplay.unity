@@ -3218,6 +3218,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 847005215}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &911478700 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8228626592812346250, guid: 0430eeb875ba69544a9debe83a1a2b0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8483459211520160020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &920260029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4816,6 +4822,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471823531}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1475657442 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8228626592422902829, guid: 0430eeb875ba69544a9debe83a1a2b0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8483459211520160020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1490243273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5723,6 +5735,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692049657}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1726012543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8228626591088144105, guid: 0430eeb875ba69544a9debe83a1a2b0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8483459211520160020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1784356977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6719,11 +6737,21 @@ PrefabInstance:
       propertyPath: debug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8483459211285285973, guid: 0430eeb875ba69544a9debe83a1a2b0c,
+        type: 3}
+      propertyPath: ArmVisual
+      value: 
+      objectReference: {fileID: 1475657442}
     - target: {fileID: 8483459212161911794, guid: 0430eeb875ba69544a9debe83a1a2b0c,
         type: 3}
       propertyPath: debug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8483459212161911794, guid: 0430eeb875ba69544a9debe83a1a2b0c,
+        type: 3}
+      propertyPath: ArmVisual
+      value: 
+      objectReference: {fileID: 1726012543}
     - target: {fileID: 8483459212164292940, guid: 0430eeb875ba69544a9debe83a1a2b0c,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -6811,6 +6839,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8483459212851224659, guid: 0430eeb875ba69544a9debe83a1a2b0c,
         type: 3}
+      propertyPath: timeBetweenChanges
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483459212851224659, guid: 0430eeb875ba69544a9debe83a1a2b0c,
+        type: 3}
       propertyPath: attackHashes.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -6824,6 +6857,11 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 1040279580}
+    - target: {fileID: 8483459213028440443, guid: 0430eeb875ba69544a9debe83a1a2b0c,
+        type: 3}
+      propertyPath: ArmVisual
+      value: 
+      objectReference: {fileID: 911478700}
     - target: {fileID: 8483459213028440443, guid: 0430eeb875ba69544a9debe83a1a2b0c,
         type: 3}
       propertyPath: weaponStats.Cooldown
