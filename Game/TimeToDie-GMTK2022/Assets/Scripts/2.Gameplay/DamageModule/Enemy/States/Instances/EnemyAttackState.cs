@@ -36,8 +36,10 @@ public class EnemyAttackState : EnemyStateBase
         if (enemy.weapon.Attack() != -1)
         {
             enemy.animator.Play(enemy.hashAttack);
+
             if (attackAnimationWaitSeconds == null)
-                attackAnimationWaitSeconds = new WaitForSeconds(enemy.animator.GetCurrentAnimatorStateInfo(0).length + 1f);
+                attackAnimationWaitSeconds = new WaitForSeconds(enemy.durationAttack);
+                
             enemy.StartCoroutine(FinishAttack(attackAnimationWaitSeconds));
         }
     }
@@ -46,5 +48,6 @@ public class EnemyAttackState : EnemyStateBase
     {
         yield return waitSeconds;
         enemy.SetState(enemy.enemyIdleState);
+        
     }
 }

@@ -16,7 +16,7 @@ public class EnemyHurstState : EnemyStateBase
         enemy.animator.Play(enemy.hashTakeDamage);
 
         if (hurtAnimationWaitSeconds == null)
-            hurtAnimationWaitSeconds = new WaitForSeconds(enemy.animator.GetCurrentAnimatorStateInfo(0).length + 0.5f);
+            hurtAnimationWaitSeconds = new WaitForSeconds(enemy.durationTakeDamage);
 
         enemy.StartCoroutine(FinishHurt(hurtAnimationWaitSeconds));
     }
