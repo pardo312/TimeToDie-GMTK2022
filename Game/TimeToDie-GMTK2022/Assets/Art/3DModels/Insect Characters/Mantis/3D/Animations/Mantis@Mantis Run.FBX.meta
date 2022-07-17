@@ -1,147 +1,413 @@
 fileFormatVersion: 2
 guid: 620628d051dbae24a9a13c37214f04db
-timeCreated: 1527037554
-licenseType: Store
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: L Eye
-    100002: L Eye Parent
-    100004: L Eye Shine
-    100006: Mantis
-    100008: Mantis Abdomen
-    100010: Mantis Abdomen02
-    100012: Mantis Abdomen03
-    100014: Mantis Head
-    100016: Mantis L Antenna
-    100018: Mantis L Antenna02
-    100020: Mantis L Antenna03
-    100022: Mantis L Antenna04
-    100024: Mantis L Calf
-    100026: Mantis L Clavicle
-    100028: Mantis L Foot
-    100030: Mantis L Forearm
-    100032: Mantis L Hand
-    100034: Mantis L Jaw
-    100036: Mantis L Lower Eyelid
-    100038: Mantis L Small Leg
-    100040: Mantis L Small Leg02
-    100042: Mantis L Small Leg03
-    100044: Mantis L Thigh
-    100046: Mantis L Toe
-    100048: Mantis L Toe 2
-    100050: Mantis L Tooth
-    100052: Mantis L Tooth02
-    100054: Mantis L Upper Eyelid
-    100056: Mantis L UpperArm
-    100058: Mantis Neck
-    100060: Mantis Pelvis
-    100062: Mantis R Antenna
-    100064: Mantis R Antenna02
-    100066: Mantis R Antenna03
-    100068: Mantis R Antenna04
-    100070: Mantis R Calf
-    100072: Mantis R Clavicle
-    100074: Mantis R Foot
-    100076: Mantis R Forearm
-    100078: Mantis R Hand
-    100080: Mantis R Jaw
-    100082: Mantis R Lower Eyelid
-    100084: Mantis R Small Leg
-    100086: Mantis R Small Leg02
-    100088: Mantis R Small Leg03
-    100090: Mantis R Thigh
-    100092: Mantis R Toe
-    100094: Mantis R Toe 2
-    100096: Mantis R Tooth
-    100098: Mantis R Tooth02
-    100100: Mantis R Upper Eyelid
-    100102: Mantis R UpperArm
-    100104: Mantis Spine
-    100106: Mantis Spine1
-    100108: //RootNode
-    100110: R Eye
-    100112: R Eye Parent
-    100114: R Eye Shine
-    400000: L Eye
-    400002: L Eye Parent
-    400004: L Eye Shine
-    400006: Mantis
-    400008: Mantis Abdomen
-    400010: Mantis Abdomen02
-    400012: Mantis Abdomen03
-    400014: Mantis Head
-    400016: Mantis L Antenna
-    400018: Mantis L Antenna02
-    400020: Mantis L Antenna03
-    400022: Mantis L Antenna04
-    400024: Mantis L Calf
-    400026: Mantis L Clavicle
-    400028: Mantis L Foot
-    400030: Mantis L Forearm
-    400032: Mantis L Hand
-    400034: Mantis L Jaw
-    400036: Mantis L Lower Eyelid
-    400038: Mantis L Small Leg
-    400040: Mantis L Small Leg02
-    400042: Mantis L Small Leg03
-    400044: Mantis L Thigh
-    400046: Mantis L Toe
-    400048: Mantis L Toe 2
-    400050: Mantis L Tooth
-    400052: Mantis L Tooth02
-    400054: Mantis L Upper Eyelid
-    400056: Mantis L UpperArm
-    400058: Mantis Neck
-    400060: Mantis Pelvis
-    400062: Mantis R Antenna
-    400064: Mantis R Antenna02
-    400066: Mantis R Antenna03
-    400068: Mantis R Antenna04
-    400070: Mantis R Calf
-    400072: Mantis R Clavicle
-    400074: Mantis R Foot
-    400076: Mantis R Forearm
-    400078: Mantis R Hand
-    400080: Mantis R Jaw
-    400082: Mantis R Lower Eyelid
-    400084: Mantis R Small Leg
-    400086: Mantis R Small Leg02
-    400088: Mantis R Small Leg03
-    400090: Mantis R Thigh
-    400092: Mantis R Toe
-    400094: Mantis R Toe 2
-    400096: Mantis R Tooth
-    400098: Mantis R Tooth02
-    400100: Mantis R Upper Eyelid
-    400102: Mantis R UpperArm
-    400104: Mantis Spine
-    400106: Mantis Spine1
-    400108: //RootNode
-    400110: R Eye
-    400112: R Eye Parent
-    400114: R Eye Shine
-    2100000: 02 - Default
-    2100002: 03 - Default
-    2300000: L Eye
-    2300002: L Eye Shine
-    2300004: R Eye
-    2300006: R Eye Shine
-    3300000: L Eye
-    3300002: L Eye Shine
-    3300004: R Eye
-    3300006: R Eye Shine
-    4300000: L Eye
-    4300002: R Eye
-    4300004: R Eye Shine
-    4300006: L Eye Shine
-    7400000: Mantis Run
-    7400002: Mantis Run Turn Left
-    7400004: Mantis Run Turn Right
-    9500000: //RootNode
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: L Eye
+  - first:
+      1: 100002
+    second: L Eye Parent
+  - first:
+      1: 100004
+    second: L Eye Shine
+  - first:
+      1: 100006
+    second: Mantis
+  - first:
+      1: 100008
+    second: Mantis Abdomen
+  - first:
+      1: 100010
+    second: Mantis Abdomen02
+  - first:
+      1: 100012
+    second: Mantis Abdomen03
+  - first:
+      1: 100014
+    second: Mantis Head
+  - first:
+      1: 100016
+    second: Mantis L Antenna
+  - first:
+      1: 100018
+    second: Mantis L Antenna02
+  - first:
+      1: 100020
+    second: Mantis L Antenna03
+  - first:
+      1: 100022
+    second: Mantis L Antenna04
+  - first:
+      1: 100024
+    second: Mantis L Calf
+  - first:
+      1: 100026
+    second: Mantis L Clavicle
+  - first:
+      1: 100028
+    second: Mantis L Foot
+  - first:
+      1: 100030
+    second: Mantis L Forearm
+  - first:
+      1: 100032
+    second: Mantis L Hand
+  - first:
+      1: 100034
+    second: Mantis L Jaw
+  - first:
+      1: 100036
+    second: Mantis L Lower Eyelid
+  - first:
+      1: 100038
+    second: Mantis L Small Leg
+  - first:
+      1: 100040
+    second: Mantis L Small Leg02
+  - first:
+      1: 100042
+    second: Mantis L Small Leg03
+  - first:
+      1: 100044
+    second: Mantis L Thigh
+  - first:
+      1: 100046
+    second: Mantis L Toe
+  - first:
+      1: 100048
+    second: Mantis L Toe 2
+  - first:
+      1: 100050
+    second: Mantis L Tooth
+  - first:
+      1: 100052
+    second: Mantis L Tooth02
+  - first:
+      1: 100054
+    second: Mantis L Upper Eyelid
+  - first:
+      1: 100056
+    second: Mantis L UpperArm
+  - first:
+      1: 100058
+    second: Mantis Neck
+  - first:
+      1: 100060
+    second: Mantis Pelvis
+  - first:
+      1: 100062
+    second: Mantis R Antenna
+  - first:
+      1: 100064
+    second: Mantis R Antenna02
+  - first:
+      1: 100066
+    second: Mantis R Antenna03
+  - first:
+      1: 100068
+    second: Mantis R Antenna04
+  - first:
+      1: 100070
+    second: Mantis R Calf
+  - first:
+      1: 100072
+    second: Mantis R Clavicle
+  - first:
+      1: 100074
+    second: Mantis R Foot
+  - first:
+      1: 100076
+    second: Mantis R Forearm
+  - first:
+      1: 100078
+    second: Mantis R Hand
+  - first:
+      1: 100080
+    second: Mantis R Jaw
+  - first:
+      1: 100082
+    second: Mantis R Lower Eyelid
+  - first:
+      1: 100084
+    second: Mantis R Small Leg
+  - first:
+      1: 100086
+    second: Mantis R Small Leg02
+  - first:
+      1: 100088
+    second: Mantis R Small Leg03
+  - first:
+      1: 100090
+    second: Mantis R Thigh
+  - first:
+      1: 100092
+    second: Mantis R Toe
+  - first:
+      1: 100094
+    second: Mantis R Toe 2
+  - first:
+      1: 100096
+    second: Mantis R Tooth
+  - first:
+      1: 100098
+    second: Mantis R Tooth02
+  - first:
+      1: 100100
+    second: Mantis R Upper Eyelid
+  - first:
+      1: 100102
+    second: Mantis R UpperArm
+  - first:
+      1: 100104
+    second: Mantis Spine
+  - first:
+      1: 100106
+    second: Mantis Spine1
+  - first:
+      1: 100108
+    second: //RootNode
+  - first:
+      1: 100110
+    second: R Eye
+  - first:
+      1: 100112
+    second: R Eye Parent
+  - first:
+      1: 100114
+    second: R Eye Shine
+  - first:
+      4: 400000
+    second: L Eye
+  - first:
+      4: 400002
+    second: L Eye Parent
+  - first:
+      4: 400004
+    second: L Eye Shine
+  - first:
+      4: 400006
+    second: Mantis
+  - first:
+      4: 400008
+    second: Mantis Abdomen
+  - first:
+      4: 400010
+    second: Mantis Abdomen02
+  - first:
+      4: 400012
+    second: Mantis Abdomen03
+  - first:
+      4: 400014
+    second: Mantis Head
+  - first:
+      4: 400016
+    second: Mantis L Antenna
+  - first:
+      4: 400018
+    second: Mantis L Antenna02
+  - first:
+      4: 400020
+    second: Mantis L Antenna03
+  - first:
+      4: 400022
+    second: Mantis L Antenna04
+  - first:
+      4: 400024
+    second: Mantis L Calf
+  - first:
+      4: 400026
+    second: Mantis L Clavicle
+  - first:
+      4: 400028
+    second: Mantis L Foot
+  - first:
+      4: 400030
+    second: Mantis L Forearm
+  - first:
+      4: 400032
+    second: Mantis L Hand
+  - first:
+      4: 400034
+    second: Mantis L Jaw
+  - first:
+      4: 400036
+    second: Mantis L Lower Eyelid
+  - first:
+      4: 400038
+    second: Mantis L Small Leg
+  - first:
+      4: 400040
+    second: Mantis L Small Leg02
+  - first:
+      4: 400042
+    second: Mantis L Small Leg03
+  - first:
+      4: 400044
+    second: Mantis L Thigh
+  - first:
+      4: 400046
+    second: Mantis L Toe
+  - first:
+      4: 400048
+    second: Mantis L Toe 2
+  - first:
+      4: 400050
+    second: Mantis L Tooth
+  - first:
+      4: 400052
+    second: Mantis L Tooth02
+  - first:
+      4: 400054
+    second: Mantis L Upper Eyelid
+  - first:
+      4: 400056
+    second: Mantis L UpperArm
+  - first:
+      4: 400058
+    second: Mantis Neck
+  - first:
+      4: 400060
+    second: Mantis Pelvis
+  - first:
+      4: 400062
+    second: Mantis R Antenna
+  - first:
+      4: 400064
+    second: Mantis R Antenna02
+  - first:
+      4: 400066
+    second: Mantis R Antenna03
+  - first:
+      4: 400068
+    second: Mantis R Antenna04
+  - first:
+      4: 400070
+    second: Mantis R Calf
+  - first:
+      4: 400072
+    second: Mantis R Clavicle
+  - first:
+      4: 400074
+    second: Mantis R Foot
+  - first:
+      4: 400076
+    second: Mantis R Forearm
+  - first:
+      4: 400078
+    second: Mantis R Hand
+  - first:
+      4: 400080
+    second: Mantis R Jaw
+  - first:
+      4: 400082
+    second: Mantis R Lower Eyelid
+  - first:
+      4: 400084
+    second: Mantis R Small Leg
+  - first:
+      4: 400086
+    second: Mantis R Small Leg02
+  - first:
+      4: 400088
+    second: Mantis R Small Leg03
+  - first:
+      4: 400090
+    second: Mantis R Thigh
+  - first:
+      4: 400092
+    second: Mantis R Toe
+  - first:
+      4: 400094
+    second: Mantis R Toe 2
+  - first:
+      4: 400096
+    second: Mantis R Tooth
+  - first:
+      4: 400098
+    second: Mantis R Tooth02
+  - first:
+      4: 400100
+    second: Mantis R Upper Eyelid
+  - first:
+      4: 400102
+    second: Mantis R UpperArm
+  - first:
+      4: 400104
+    second: Mantis Spine
+  - first:
+      4: 400106
+    second: Mantis Spine1
+  - first:
+      4: 400108
+    second: //RootNode
+  - first:
+      4: 400110
+    second: R Eye
+  - first:
+      4: 400112
+    second: R Eye Parent
+  - first:
+      4: 400114
+    second: R Eye Shine
+  - first:
+      21: 2100000
+    second: 02 - Default
+  - first:
+      21: 2100002
+    second: 03 - Default
+  - first:
+      23: 2300000
+    second: L Eye
+  - first:
+      23: 2300002
+    second: L Eye Shine
+  - first:
+      23: 2300004
+    second: R Eye
+  - first:
+      23: 2300006
+    second: R Eye Shine
+  - first:
+      33: 3300000
+    second: L Eye
+  - first:
+      33: 3300002
+    second: L Eye Shine
+  - first:
+      33: 3300004
+    second: R Eye
+  - first:
+      33: 3300006
+    second: R Eye Shine
+  - first:
+      43: 4300000
+    second: L Eye
+  - first:
+      43: 4300002
+    second: R Eye
+  - first:
+      43: 4300004
+    second: R Eye Shine
+  - first:
+      43: 4300006
+    second: L Eye Shine
+  - first:
+      74: 7400000
+    second: Mantis Run
+  - first:
+      74: 7400002
+    second: Mantis Run Turn Left
+  - first:
+      74: 7400004
+    second: Mantis Run Turn Right
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -150,6 +416,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -158,6 +425,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -169,6 +437,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Mantis Run
       takeName: Take 001
+      internalID: 0
       firstFrame: 0
       lastFrame: 20
       wrapMode: 0
@@ -184,7 +453,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -258,79 +527,80 @@ ModelImporter:
         weight: 1
       - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/L
-          Eye Parent
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/L Eye Parent
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/L
-          Eye Parent/L Eye
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/L Eye Parent/L Eye
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/L
-          Eye Shine
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/L Eye Shine
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna/Mantis L Antenna02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna/Mantis L Antenna02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna/Mantis L Antenna02/Mantis L Antenna03
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna/Mantis L Antenna02/Mantis L Antenna03
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna/Mantis L Antenna02/Mantis L Antenna03/Mantis L Antenna04
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna/Mantis L Antenna02/Mantis L Antenna03/Mantis L Antenna04
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Jaw
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Jaw
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Lower Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Lower Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Tooth
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Tooth
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Tooth/Mantis L Tooth02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Tooth/Mantis L Tooth02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Upper Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Upper Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna/Mantis R Antenna02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna/Mantis R Antenna02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna/Mantis R Antenna02/Mantis R Antenna03
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna/Mantis R Antenna02/Mantis R Antenna03
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna/Mantis R Antenna02/Mantis R Antenna03/Mantis R Antenna04
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna/Mantis R Antenna02/Mantis R Antenna03/Mantis R Antenna04
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Jaw
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Jaw
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Lower Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Lower Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Tooth
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Tooth
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Tooth/Mantis R Tooth02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Tooth/Mantis R Tooth02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Upper Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Upper Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/R
-          Eye Parent
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/R Eye Parent
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/R
-          Eye Parent/R Eye
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/R Eye Parent/R Eye
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/R
-          Eye Shine
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/R Eye Shine
         weight: 1
       - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis R Clavicle
         weight: 1
@@ -351,6 +621,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Mantis Run Turn Left
       takeName: Take 001
+      internalID: 0
       firstFrame: 30
       lastFrame: 50
       wrapMode: 0
@@ -440,79 +711,80 @@ ModelImporter:
         weight: 1
       - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/L
-          Eye Parent
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/L Eye Parent
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/L
-          Eye Parent/L Eye
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/L Eye Parent/L Eye
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/L
-          Eye Shine
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/L Eye Shine
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna/Mantis L Antenna02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna/Mantis L Antenna02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna/Mantis L Antenna02/Mantis L Antenna03
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna/Mantis L Antenna02/Mantis L Antenna03
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna/Mantis L Antenna02/Mantis L Antenna03/Mantis L Antenna04
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna/Mantis L Antenna02/Mantis L Antenna03/Mantis L Antenna04
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Jaw
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Jaw
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Lower Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Lower Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Tooth
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Tooth
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Tooth/Mantis L Tooth02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Tooth/Mantis L Tooth02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Upper Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Upper Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna/Mantis R Antenna02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna/Mantis R Antenna02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna/Mantis R Antenna02/Mantis R Antenna03
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna/Mantis R Antenna02/Mantis R Antenna03
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna/Mantis R Antenna02/Mantis R Antenna03/Mantis R Antenna04
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna/Mantis R Antenna02/Mantis R Antenna03/Mantis R Antenna04
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Jaw
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Jaw
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Lower Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Lower Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Tooth
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Tooth
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Tooth/Mantis R Tooth02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Tooth/Mantis R Tooth02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Upper Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Upper Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/R
-          Eye Parent
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/R Eye Parent
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/R
-          Eye Parent/R Eye
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/R Eye Parent/R Eye
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/R
-          Eye Shine
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/R Eye Shine
         weight: 1
       - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis R Clavicle
         weight: 1
@@ -533,6 +805,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Mantis Run Turn Right
       takeName: Take 001
+      internalID: 0
       firstFrame: 60
       lastFrame: 80
       wrapMode: 0
@@ -622,79 +895,80 @@ ModelImporter:
         weight: 1
       - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/L
-          Eye Parent
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/L Eye Parent
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/L
-          Eye Parent/L Eye
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/L Eye Parent/L Eye
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/L
-          Eye Shine
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/L Eye Shine
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna/Mantis L Antenna02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna/Mantis L Antenna02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna/Mantis L Antenna02/Mantis L Antenna03
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna/Mantis L Antenna02/Mantis L Antenna03
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Antenna/Mantis L Antenna02/Mantis L Antenna03/Mantis L Antenna04
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Antenna/Mantis L Antenna02/Mantis L Antenna03/Mantis L Antenna04
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Jaw
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Jaw
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Lower Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Lower Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Tooth
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Tooth
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Tooth/Mantis L Tooth02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Tooth/Mantis L Tooth02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          L Upper Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis L Upper Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna/Mantis R Antenna02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna/Mantis R Antenna02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna/Mantis R Antenna02/Mantis R Antenna03
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna/Mantis R Antenna02/Mantis R Antenna03
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Antenna/Mantis R Antenna02/Mantis R Antenna03/Mantis R Antenna04
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Antenna/Mantis R Antenna02/Mantis R Antenna03/Mantis R Antenna04
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Jaw
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Jaw
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Lower Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Lower Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Tooth
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Tooth
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Tooth/Mantis R Tooth02
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Tooth/Mantis R Tooth02
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/Mantis
-          R Upper Eyelid
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/Mantis R Upper Eyelid
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/R
-          Eye Parent
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/R Eye Parent
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/R
-          Eye Parent/R Eye
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/R Eye Parent/R Eye
         weight: 1
-      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis Head/R
-          Eye Shine
+      - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis Neck/Mantis
+          Head/R Eye Shine
         weight: 1
       - path: Mantis/Mantis Pelvis/Mantis Spine/Mantis Spine1/Mantis R Clavicle
         weight: 1
@@ -718,21 +992,33 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -740,10 +1026,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 1
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human:
     - boneName: Mantis Pelvis
       humanName: Hips
@@ -1200,15 +1489,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 01b669e41981b5745813c3ae1ea54547,
     type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

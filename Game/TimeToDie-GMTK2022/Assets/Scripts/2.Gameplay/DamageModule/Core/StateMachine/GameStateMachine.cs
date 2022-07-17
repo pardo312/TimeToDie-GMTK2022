@@ -42,8 +42,30 @@ public class GameStateMachine : MonoBehaviour
         SetLevelState(LevelStage.gameMode);
     }
 
-    private void SetLevelState(LevelStage state)
+    public void SetLevelState(LevelStage state)
     {
+        if (state == LevelStage.inbetween)
+        {
+            foreach (var character in FindObjectsOfType<CharacterStateMachine>())
+            {
+                Rigidbody rigidbody = character.GetComponent<Rigidbody>();
+                if (rigidbody != null)
+                    rigidbody.isKinematic = true;
+            }
+        }
+        if (state == LevelStage.gameMode)
+        {
+            foreach (var character in FindObjectsOfType<CharacterStateMachine>())
+            {
+                Rigidbody rigidbody = character.GetComponent<Rigidbody>();
+                if (rigidbody != null)
+                    rigidbody.isKinematic = false;
+            }
+        }
+        if (state == LevelStage.loose)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
         LevelStage = state;
         OnGameStateChanged?.Invoke(LevelStage);
     }
@@ -54,5 +76,6 @@ public enum LevelStage
     setup = 0,
     inbetween = 1,
     gameMode = 2,
-    victory = 3
+    victory = 3,
+    loose = 4
 }

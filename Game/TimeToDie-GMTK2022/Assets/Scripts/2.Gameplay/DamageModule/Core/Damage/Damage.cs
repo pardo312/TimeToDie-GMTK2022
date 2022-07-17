@@ -9,8 +9,10 @@ public class Damage
     public DamageTypes damageType;
     public bool isOver;
     public float amount;
+
     public virtual void CalculateDamage()
     {
+        Debug.Log("Damage");
         target.TakeDamage(amount);
         isOver = true;
     }

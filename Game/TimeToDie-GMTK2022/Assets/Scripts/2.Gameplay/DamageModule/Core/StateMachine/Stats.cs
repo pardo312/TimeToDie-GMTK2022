@@ -6,5 +6,6 @@ using UnityEngine;
 public class Stats
 {
     [SerializeField] private float velocity;
+    public float life;
     public float Velocity { get => velocity; set => velocity = value;}
 }

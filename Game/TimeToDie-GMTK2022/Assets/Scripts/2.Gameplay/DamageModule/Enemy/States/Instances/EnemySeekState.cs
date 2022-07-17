@@ -1,59 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemySeekState : EnemyStateBase
 {
-    float timeBetweenSearch;
-    int searchingRoute = 0;
-    public EnemySeekState(EnemyStateMachine enemy) : base(enemy)
+    private Vector3 desiredRotation = new Vector3();
+
+    public EnemySeekState(EnemyStateMachine enemy, string name) : base(enemy, name)
     {
         this.enemy = enemy;
-        //NavMesh.CalculatePath(enemy.transform.position, enemy.targetPosition.transform.position, NavMesh.AllAreas, enemy.path);
+        this.name = name;
     }
 
-    public override void ProcessInput(Vector2 movement, Vector2 look)
+    public override void EnterState()
     {
-
+        enemy.agent.speed = enemy.statistics.MovementSpeed;
+        enemy.animator.Play(enemy.hashMovement);
     }
 
-    public override void ReceivedEvent(PlayerStateMachine.Buttons buttons)
+    public override void UpdateState(float deltaTime)
     {
-
-    }
-
-    public override void UpdateState()
-    {
-
-    }
-
-    public void AlignBody(Vector3 targetPosition)
-    {
-        float angle =  Vector3 .SignedAngle(enemy.transform.forward, (targetPosition - enemy.transform.position).normalized, Vector3.up);
-        Debug.Log(angle);
-        if (Mathf.Abs(angle) > 10)
+        if (!enemy.IsPlayerAtRange())
         {
-            enemy.animator.SetFloat(enemy.hashVelocity, 0.02f);
-            if (angle > 0)
-            {
-                enemy.animator.SetFloat(enemy.hashTurn, 1);
-            }
-            else
-            {
-                enemy.animator.SetFloat(enemy.hashTurn, -1);
-            }
+            enemy.agent.isStopped = false;
+            enemy.agent.SetDestination(GameStateMachine.Singleton.Player.transform.position);
+            //AlignBody(GameStateMachine.Singleton.Player.transform.position, deltaTime);
         }
         else
         {
-            enemy.animator.SetFloat(enemy.hashTurn, 0);
-            enemy.animator.SetFloat(enemy.hashVelocity, 1);
+            enemy.agent.isStopped = true;
+            enemy.SetState(enemy.enemyAttackState);
         }
     }
 
-    public void SearchRouteToPlayer()
+    public override void ExitState() { }
+
+    public override void ProcessInput(Vector2 movement, Vector3 look) { }
+
+    public override void ReceivedEvent(PlayerStateMachine.Buttons buttons) { }
+
+    private void AlignBody(Vector3 targetPosition, float deltaTime)
     {
-        NavMesh.CalculatePath(enemy.transform.position, GameStateMachine.Singleton.Player.transform.position, NavMesh.AllAreas, enemy.path);
-        timeBetweenSearch = Time.time + 1;
+        desiredRotation.y =  Vector3.SignedAngle(enemy.transform.forward, (targetPosition - enemy.transform.position).normalized, Vector3.up);
+        enemy.transform.eulerAngles = Vector3.Lerp(enemy.transform.rotation.eulerAngles, desiredRotation, deltaTime);
     }
 }

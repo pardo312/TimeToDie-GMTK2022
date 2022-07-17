@@ -9,11 +9,15 @@ public class PlayerStateMachine : CharacterStateMachine
     public Stats Stats;
     public Rigidbody RigidBody;
     public GameObject Indicator;
+    [Header("Weapons")]
     public int currentWeapon;
     public List<WeaponBase> Weapons;
     public List<float> WeaponDuration;
     public List<int> attackHashes;
     [SerializeField] Transform weaponParent;
+    [SerializeField] float timeBetweenChanges;
+    [SerializeField] int takeDamageHash;
+    float currentTimeBetweenChanges = 0.1f;
 
     public void SetState(PlayerStateBase state)
     {
@@ -23,6 +27,7 @@ public class PlayerStateMachine : CharacterStateMachine
 
     private void Start()
     {
+        takeDamageHash = Animator.StringToHash("DamageTaken");
         attackHashes.Add(Animator.StringToHash("SwordAttack"));
         attackHashes.Add(Animator.StringToHash("SwordAttack"));
         attackHashes.Add(Animator.StringToHash("DrawArrow"));
@@ -46,11 +51,30 @@ public class PlayerStateMachine : CharacterStateMachine
         currentState.UpdateState();
         if (Input.GetKeyDown(KeyCode.Mouse0))
             OnJoystickChange(Buttons.Attack);
+        if (currentTimeBetweenChanges - Time.time < 0)
+            SwapWeapons();
     }
 
     private void OnJoystickChange(Buttons button)
     {
         currentState.ReceivedEvent(button);
+    }
+
+    public void SwapWeapons()
+    {
+        Debug.Log("Swap Weapons!");
+        currentTimeBetweenChanges = Time.time + timeBetweenChanges;
+        int random = UnityEngine.Random.Range(0, Weapons.Count);
+        currentWeapon = random;
+        for (int i = 0; i < Weapons.Count; i++)
+        {
+            if (i == random)
+            {
+                Weapons[i].EnableVisual(true);
+            }
+            else
+                Weapons[i].EnableVisual(false);
+        }
     }
 
 
@@ -68,6 +92,10 @@ public class PlayerStateMachine : CharacterStateMachine
         {
             SetState(new PlayerDisableState(this));
         }
+        if (stage == LevelStage.loose)
+        {
+            SetState(new PlayerDisableState(this));
+        }
     }
 
     public override void TakeDamage(float amount)
@@ -82,6 +110,14 @@ public class PlayerStateMachine : CharacterStateMachine
     public override void AddDamage(Damage damageTaken)
     {
         base.AddDamage(damageTaken);
+        Stats.life -= damageTaken.amount;
+        if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "idle2")
+            animator.Play(takeDamageHash);
+        if (Stats.life <= 0)
+        {
+            GameStateMachine.Singleton.SetLevelState(LevelStage.loose);
+            
+        }
         //animator.Play(getHitHash);
     }
 
