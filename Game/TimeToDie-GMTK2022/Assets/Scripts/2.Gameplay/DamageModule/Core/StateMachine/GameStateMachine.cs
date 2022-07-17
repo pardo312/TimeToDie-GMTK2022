@@ -18,7 +18,7 @@ public class GameStateMachine : MonoBehaviour
         if (Singleton == null)
         {
             Singleton = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
         else if (Singleton != this)
         {
