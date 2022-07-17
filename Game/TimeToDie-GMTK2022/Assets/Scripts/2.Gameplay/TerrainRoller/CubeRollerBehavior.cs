@@ -7,6 +7,7 @@ public class CubeRollerBehavior : MonoBehaviour
     [SerializeField] List<Quaternion> posibleRotations = new List<Quaternion>();
     [SerializeField] float timeBetweenSwaps;
     [SerializeField] float rotationVelocity;
+    [SerializeField] int targetRotation;
     [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
     float currentTime = 0.1f;
 
@@ -44,6 +45,12 @@ public class CubeRollerBehavior : MonoBehaviour
         transform.rotation = posibleRotations[random];
         GameStateMachine.Singleton.SetLevelState(LevelStage.gameMode);
         cinemachineVirtualCamera.Priority = 9;
+    }
+
+    [ContextMenu("PutTargetRotation")]
+    public void PutTargetRotation()
+    {
+        transform.rotation = posibleRotations[targetRotation];
     }
 
     [ContextMenu("GetCurrentRotation")]
