@@ -24,6 +24,8 @@ public class PlayerStateMachine : CharacterStateMachine
     private void Start()
     {
         attackHashes.Add(Animator.StringToHash("SwordAttack"));
+        attackHashes.Add(Animator.StringToHash("SwordAttack"));
+        attackHashes.Add(Animator.StringToHash("DrawArrow"));
     }
 
     private void Awake()

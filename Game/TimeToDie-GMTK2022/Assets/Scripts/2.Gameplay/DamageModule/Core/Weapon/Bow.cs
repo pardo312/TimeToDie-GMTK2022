@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bow : WeaponBase
 {
     float tensionTime;
-    [SerializeField] public Queue<Arrow> arrows;
+    [SerializeField] public Queue<Arrow> arrows = new Queue<Arrow>();
     [SerializeField] private GameObject bullet;
     public override int Attack()
     {
