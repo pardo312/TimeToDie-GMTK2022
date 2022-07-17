@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statistics:
-    Life: 40
-    Range: 3
-    WaitTimeBetweenAttacks: 1
+    Life: 120
+    Range: 2
+    WaitTimeBetweenAttacks: 3
     MovementSpeed: 4
   damages: []
   currentStateName: 

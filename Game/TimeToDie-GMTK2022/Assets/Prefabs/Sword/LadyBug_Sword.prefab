@@ -105,10 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statistics:
-    Life: 40
-    Range: 3
+    Life: 20
+    Range: 1
     WaitTimeBetweenAttacks: 1
-    MovementSpeed: 4
+    MovementSpeed: 10
   damages: []
   currentStateName: 
   agent: {fileID: 0}
