@@ -7165,6 +7165,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8472456553498618970, guid: 0c754f956c1bd4b4592d750fbcfd2f34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8472456553498618975, guid: 0c754f956c1bd4b4592d750fbcfd2f34,
         type: 3}
       propertyPath: m_Speed
@@ -7827,7 +7832,7 @@ MonoBehaviour:
   - {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   - {x: 1, y: -0, z: -0, w: 0}
   - {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  timeBetweenSwaps: 4
+  timeBetweenSwaps: 25
   rotationVelocity: 100
   cinemachineVirtualCamera: {fileID: 887666645}
 --- !u!4 &1988045078 stripped
