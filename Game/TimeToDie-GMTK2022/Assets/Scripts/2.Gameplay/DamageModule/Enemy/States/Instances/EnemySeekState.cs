@@ -14,24 +14,27 @@ public class EnemySeekState : EnemyStateBase
     {
         enemy.agent.speed = enemy.statistics.MovementSpeed;
         enemy.animator.Play(enemy.hashMovement);
+        enemy.agent.isStopped = false;
     }
 
     public override void UpdateState(float deltaTime)
     {
         if (!enemy.IsPlayerAtRange())
         {
-            enemy.agent.isStopped = false;
             enemy.agent.SetDestination(GameStateMachine.Singleton.Player.transform.position);
             //AlignBody(GameStateMachine.Singleton.Player.transform.position, deltaTime);
         }
         else
         {
-            enemy.agent.isStopped = true;
             enemy.SetState(enemy.enemyAttackState);
         }
     }
 
-    public override void ExitState() { }
+    public override void ExitState() 
+    {
+        enemy.agent.isStopped = true;
+        enemy.StopAllCoroutines();
+    }
 
     public override void ProcessInput(Vector2 movement, Vector3 look) { }
 

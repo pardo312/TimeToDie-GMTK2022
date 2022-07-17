@@ -20,13 +20,16 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
     public EnemyIdleState enemyIdleState;
     public EnemySeekState enemySeekState;
     public EnemyAttackState enemyAttackState;
-
+    public EnemyHurstState enemyhurstState;
+    public EnemyDeathState enemyDeathState;
 
     private void Awake()
     {
         enemyIdleState = new EnemyIdleState(this, nameof(EnemyIdleState));
         enemySeekState = new EnemySeekState(this, nameof(EnemySeekState));
         enemyAttackState = new EnemyAttackState(this, nameof(EnemyAttackState));
+        enemyhurstState = new EnemyHurstState(this, nameof(EnemyHurstState));
+        enemyDeathState = new EnemyDeathState(this, nameof(EnemyDeathState));
 
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
@@ -108,11 +111,14 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
     public virtual void TakeDamage(float amount)
     {
         statistics.Life -= amount;
-        animator.Play(hashTakeDamage);
         if (statistics.Life <= 0)
         {
-            gameObject.SetActive(false);
+            SetState(enemyDeathState);
+            return;
         }
+
+        if(currentState != enemyhurstState)
+            SetState(enemyhurstState);
         //TODO reduce amount to current life: stats.life -= amount;
         //Show UI damage effect
     }
