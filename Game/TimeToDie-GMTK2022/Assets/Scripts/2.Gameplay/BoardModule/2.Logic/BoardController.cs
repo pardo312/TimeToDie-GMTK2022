@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TimeToDie.BoardModule;
+using TimeToDie.DataManagerModule;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TimeToDie
 {
@@ -16,6 +18,7 @@ namespace TimeToDie
         public CameraController camController;
         public CanvasGroup mainMenu;
         public GameObject collidersMap;
+        public CanvasGroup fadeGroup;
 
         [Header("Dices")]
         public List<DiceRoll> dicesPrefab;
@@ -51,7 +54,7 @@ namespace TimeToDie
             yield return new WaitForSeconds(2);
 
             camController.ChangeCamera(CamerasBoard.FOCUS_CAM);
-            showEnemyCard.Init(camController,currentDiceGroup.Count);
+            showEnemyCard.Init(camController, currentDiceGroup.Count);
             enemyCards.SpawnEnemyCards(() =>
             {
                 currentDiceGroup.ForEach(die =>
@@ -92,10 +95,15 @@ namespace TimeToDie
             collidersMap.SetActive(true);
         }
 
-        public void OnEnemiesSelected(List<EnemyData> enemiesData)
+        public void OnEnemiesSelected(List<EnemyInitData> enemiesData)
         {
             //Fade to black
-            Debug.Log("Enemies selected.");
+            LeanTween.value(0, 1, 1f).setOnUpdate((float value) => fadeGroup.alpha = value).setOnComplete(() =>
+            {
+                //GO-TO-Gameplay
+                DataManager.instance.enemiesData = enemiesData;
+                SceneManager.LoadScene("Gameplay");
+            });
         }
 
         IEnumerator WaitForSeconds(float seconds, Action callback)

@@ -22,7 +22,6 @@ namespace TimeToDie.BoardModule
         #endregion ----Fields----
 
         #region ----Methods----
-        [ContextMenu("Spawn cards")]
         public void SpawnEnemyCards(Action onComplete = null)
         {
             StartCoroutine(SpawnCards(onComplete ));

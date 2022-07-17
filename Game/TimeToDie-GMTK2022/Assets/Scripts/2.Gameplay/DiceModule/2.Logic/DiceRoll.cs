@@ -55,7 +55,7 @@ namespace TimeToDie
             else if (Input.GetMouseButton(0))
             {
                 float valueX = DeClamp(.2f, .6f, -.6f, .3f, Mathf.Clamp(mousePositionInWorld.x, .2f, .6f));
-                float valueY = DeClamp(.4f, .8f, -7.7f, -7f, Mathf.Clamp(mousePositionInWorld.y, .4f, .8f));
+                float valueY = DeClamp(.4f, .8f, -7.6f, -7f, Mathf.Clamp(mousePositionInWorld.y, .4f, .8f));
                 this.transform.localPosition = new Vector3(valueX, POS_Y_PICKUP_DIE, valueY);
                 this.transform.rotation = UnityEngine.Random.rotation;
             }

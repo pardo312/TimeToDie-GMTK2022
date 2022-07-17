@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TimeToDie.BoardModule;
+using TimeToDie.DataManagerModule;
 using UnityEngine;
 
 namespace TimeToDie
@@ -15,7 +16,7 @@ namespace TimeToDie
         private int currentPosition = 0;
         private int maxPosition = 10000;
         private CameraController camController;
-        private List<EnemyData> enemiesData = new List<EnemyData>();
+        private List<EnemyInitData> enemiesData = new List<EnemyInitData>();
         #endregion ----Fields----
 
         #region ----Methods----
@@ -23,10 +24,10 @@ namespace TimeToDie
         {
             camController = _camController;
             maxPosition = _maxPosition;
-            enemiesData = new List<EnemyData>();
+            enemiesData = new List<EnemyInitData>();
         }
 
-        public void SetCardInPosition(int dieNumber, Collision other, DiceRoll die, Action<int> onFinishShowingEnemy, Action<List<EnemyData>> onEndSelectingEnemies)
+        public void SetCardInPosition(int dieNumber, Collision other, DiceRoll die, Action<int> onFinishShowingEnemy, Action<List<EnemyInitData>> onEndSelectingEnemies)
         {
             if (currentPosition < listOfCardsPositions.Count)
             {
@@ -36,7 +37,7 @@ namespace TimeToDie
                     SpawnEnemyInCard(listOfCardsPositions[currentPosition], (enemyIndex) =>
                     {
                         currentPosition++;
-                        enemiesData.Add(new EnemyData() { enemyType = enemyIndex, numberOfEnemies = dieNumber });
+                        enemiesData.Add(new EnemyInitData() { enemyType = enemyIndex, numberOfEnemies = dieNumber });
 
                         if (currentPosition >= listOfCardsPositions.Count || currentPosition >= maxPosition)
                             onEndSelectingEnemies?.Invoke(enemiesData);
@@ -67,12 +68,5 @@ namespace TimeToDie
             callback?.Invoke();
         }
         #endregion ----Methods----
-    }
-
-    [System.Serializable]
-    public class EnemyData
-    {
-        public int enemyType;
-        public int numberOfEnemies;
     }
 }
