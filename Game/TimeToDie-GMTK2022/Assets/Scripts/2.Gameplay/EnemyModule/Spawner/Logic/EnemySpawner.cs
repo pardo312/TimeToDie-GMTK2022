@@ -18,7 +18,17 @@ namespace TimeToDie.EnemyModule
         public void Start()
         {
             levelLabelText.text = DataManager.instance?.currentLevel.ToString();
-            StartCoroutine(SpawnEnemies());
+            if (!(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "boss"))
+            {
+                StartCoroutine(SpawnEnemies());
+            }
+        }
+
+        public void SpawnHandler()
+        {
+            GameObject enemy = Instantiate(listOfEnemiesPrefabs[Random.Range(0,5)],
+                                                   spawnPoints[Random.Range(0, spawnPoints.Count)].position,
+                                                   Quaternion.identity);
         }
 
         public IEnumerator SpawnEnemies()
