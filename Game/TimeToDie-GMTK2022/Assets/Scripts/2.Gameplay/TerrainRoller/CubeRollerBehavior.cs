@@ -36,7 +36,7 @@ public class CubeRollerBehavior : MonoBehaviour
     IEnumerator RotateRoutine()
     {
         int random = Random.Range(0, posibleRotations.Count);
-        float time = Time.time + 3;
+        float time = Time.time + 2;
         while (time - Time.time > 0)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation,posibleRotations[random],rotationVelocity * Time.deltaTime);
