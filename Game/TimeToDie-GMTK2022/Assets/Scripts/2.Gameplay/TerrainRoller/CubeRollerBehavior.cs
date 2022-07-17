@@ -23,7 +23,8 @@ public class CubeRollerBehavior : MonoBehaviour
         {
             SwapRotation();
             cinemachineVirtualCamera.Priority = 11;
-            GameStateMachine.Singleton.SetLevelState(LevelStage.inbetween);
+            if (GameStateMachine.Singleton != null)
+                GameStateMachine.Singleton.SetLevelState(LevelStage.inbetween);
             currentTime = Time.time + timeBetweenSwaps;
         }
     }
@@ -43,7 +44,9 @@ public class CubeRollerBehavior : MonoBehaviour
             yield return null;
         }
         transform.rotation = posibleRotations[random];
-        GameStateMachine.Singleton.SetLevelState(LevelStage.gameMode);
+        if (GameStateMachine.Singleton != null)
+            GameStateMachine.Singleton.SetLevelState(LevelStage.gameMode);
+        
         cinemachineVirtualCamera.Priority = 9;
     }
 
