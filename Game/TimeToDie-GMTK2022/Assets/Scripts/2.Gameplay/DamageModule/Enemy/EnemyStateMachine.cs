@@ -15,7 +15,7 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
     public Rigidbody rigidBody;
     public WeaponBase weapon;
 
-    public int hashIdle, hashMovement, hashAttack, hashDeath;
+    public int hashIdle, hashMovement, hashAttack, hashDeath, hashTakeDamage;
 
     public EnemyIdleState enemyIdleState;
     public EnemySeekState enemySeekState;
@@ -40,6 +40,7 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
         hashMovement = Animator.StringToHash("Movement");
         hashAttack = Animator.StringToHash("Attack");
         hashDeath = Animator.StringToHash("Death");
+        hashTakeDamage = Animator.StringToHash("TakeDamage");
 
         SetState(enemyIdleState);
     }
@@ -47,6 +48,7 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
     private void Update()
     {
         currentState.UpdateState(Time.deltaTime);
+        ApplyDamages();
     }
 
     public void SetState(EnemyStateBase state)
@@ -100,10 +102,17 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
     public virtual void AddDamage(Damage damageTaken)
     {
         damages.Add(damageTaken);
+        damageTaken.target = this;
     }
 
     public virtual void TakeDamage(float amount)
     {
+        statistics.Life -= amount;
+        animator.Play(hashTakeDamage);
+        if (statistics.Life <= 0)
+        {
+            gameObject.SetActive(false);
+        }
         //TODO reduce amount to current life: stats.life -= amount;
         //Show UI damage effect
     }

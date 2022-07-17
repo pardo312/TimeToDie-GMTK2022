@@ -16,6 +16,7 @@ public class PlayerStateMachine : CharacterStateMachine
     public List<int> attackHashes;
     [SerializeField] Transform weaponParent;
     [SerializeField] float timeBetweenChanges;
+    [SerializeField] int takeDamageHash;
     float currentTimeBetweenChanges = 0.1f;
 
     public void SetState(PlayerStateBase state)
@@ -26,6 +27,7 @@ public class PlayerStateMachine : CharacterStateMachine
 
     private void Start()
     {
+        takeDamageHash = Animator.StringToHash("DamageTaken");
         attackHashes.Add(Animator.StringToHash("SwordAttack"));
         attackHashes.Add(Animator.StringToHash("SwordAttack"));
         attackHashes.Add(Animator.StringToHash("DrawArrow"));
@@ -90,6 +92,10 @@ public class PlayerStateMachine : CharacterStateMachine
         {
             SetState(new PlayerDisableState(this));
         }
+        if (stage == LevelStage.loose)
+        {
+            SetState(new PlayerDisableState(this));
+        }
     }
 
     public override void TakeDamage(float amount)
@@ -104,6 +110,14 @@ public class PlayerStateMachine : CharacterStateMachine
     public override void AddDamage(Damage damageTaken)
     {
         base.AddDamage(damageTaken);
+        Stats.life -= damageTaken.amount;
+        if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "idle2")
+            animator.Play(takeDamageHash);
+        if (Stats.life <= 0)
+        {
+            GameStateMachine.Singleton.SetLevelState(LevelStage.loose);
+            
+        }
         //animator.Play(getHitHash);
     }
 

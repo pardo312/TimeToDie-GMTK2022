@@ -7,8 +7,13 @@ public class CubeRollerBehavior : MonoBehaviour
     [SerializeField] List<Quaternion> posibleRotations = new List<Quaternion>();
     [SerializeField] float timeBetweenSwaps;
     [SerializeField] float rotationVelocity;
-    
+    [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
     float currentTime = 0.1f;
+
+    private void Start()
+    {
+        currentTime = timeBetweenSwaps;
+    }
 
     // Update is called once per frame
     void Update()
@@ -16,6 +21,8 @@ public class CubeRollerBehavior : MonoBehaviour
         if (currentTime - Time.time < 0)
         {
             SwapRotation();
+            cinemachineVirtualCamera.Priority = 11;
+            GameStateMachine.Singleton.SetLevelState(LevelStage.inbetween);
             currentTime = Time.time + timeBetweenSwaps;
         }
     }
@@ -28,11 +35,15 @@ public class CubeRollerBehavior : MonoBehaviour
     IEnumerator RotateRoutine()
     {
         int random = Random.Range(0, posibleRotations.Count);
-        while (transform.rotation != posibleRotations[random])
+        float time = Time.time + 4;
+        while (time - Time.time > 0)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation,posibleRotations[random],rotationVelocity * Time.deltaTime);
             yield return null;
         }
+        transform.rotation = posibleRotations[random];
+        GameStateMachine.Singleton.SetLevelState(LevelStage.gameMode);
+        cinemachineVirtualCamera.Priority = 9;
     }
 
     [ContextMenu("GetCurrentRotation")]
