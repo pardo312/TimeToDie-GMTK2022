@@ -30,7 +30,7 @@ namespace TimeToDie.EnemyModule
                                                    spawnPoints[Random.Range(0, spawnPoints.Count)].position,
                                                    Quaternion.identity);
 
-                    enemy.transform.position += new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5));
+                    //enemy.transform.position += new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5));
                 }
             });
         }

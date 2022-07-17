@@ -13,7 +13,7 @@ public class CubeRollerBehavior : MonoBehaviour
 
     private void Start()
     {
-        currentTime = timeBetweenSwaps;
+        currentTime = Time.time + timeBetweenSwaps;
     }
 
     // Update is called once per frame
