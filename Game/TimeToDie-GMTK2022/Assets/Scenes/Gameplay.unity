@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelStage: 0
-  UI: {fileID: 0}
+  UI: {fileID: 1024774153}
   Player: {fileID: 1370460487}
 --- !u!4 &197442467
 Transform:
