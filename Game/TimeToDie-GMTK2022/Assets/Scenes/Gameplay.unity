@@ -4441,7 +4441,7 @@ PrefabInstance:
     - target: {fileID: 8483459212851224659, guid: 0430eeb875ba69544a9debe83a1a2b0c,
         type: 3}
       propertyPath: Stats.life
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8483459212851224659, guid: 0430eeb875ba69544a9debe83a1a2b0c,
         type: 3}
