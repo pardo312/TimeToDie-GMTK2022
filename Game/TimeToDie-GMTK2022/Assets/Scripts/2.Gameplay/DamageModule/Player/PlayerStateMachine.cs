@@ -23,7 +23,6 @@ public class PlayerStateMachine : CharacterStateMachine
 
     private void Start()
     {
-        Weapons = new List<WeaponBase>(weaponParent.GetComponentsInChildren<WeaponBase>());
         attackHashes.Add(Animator.StringToHash("SwordAttack"));
     }
 

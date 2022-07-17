@@ -4,16 +4,42 @@ using UnityEngine;
 
 public class Bow : WeaponBase
 {
+    float tensionTime;
+    [SerializeField] public Queue<Arrow> arrows;
+    [SerializeField] private GameObject bullet;
     public override int Attack()
     {
-        if (base.Attack() != -1)
+        if (!(currentCooldown - Time.time < 0))
+            return -1;
+        currentCooldown = Time.time + weaponStats.Cooldown;
+        tensionTime = Time.time;
+        StartCoroutine(DrawArrow());
+        return 2;
+    }
+
+    public void DrawProjectil(float force)
+    {
+        Arrow currentArrow;
+        if (arrows.Count > 0)
+            currentArrow = arrows.Dequeue();
+        else
         {
-            StartCoroutine(WaitAnimation(() =>
-            {
-                //Do in between
-            }, animationTime));
-            return animationIndex;
+            currentArrow = Instantiate(bullet).GetComponent<Arrow>();
+            currentArrow.SetParent(this);
         }
-        return -1;
+        currentArrow.Init(Mathf.Clamp(force,0,6));
+    }
+
+    IEnumerator DrawArrow()
+    {
+        while (true)
+        {
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                DrawProjectil(Mathf.Abs(tensionTime));
+                break;
+            }
+            yield return null;
+        }
     }
 }

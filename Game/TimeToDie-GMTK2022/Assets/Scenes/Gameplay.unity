@@ -4730,10 +4730,14 @@ MonoBehaviour:
   RigidBody: {fileID: 1370460485}
   Indicator: {fileID: 1807014279}
   currentWeapon: 0
-  Weapons: []
+  Weapons:
+  - {fileID: 1715583718}
+  - {fileID: 838892865}
+  - {fileID: 1514113135}
   WeaponDuration:
   - 1.267
   - 1.267
+  - 6
   attackHashes: 
   weaponParent: {fileID: 1370460484}
 --- !u!1001 &1379782150
@@ -5304,6 +5308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1514113134}
+  - component: {fileID: 1514113135}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -5326,6 +5331,29 @@ Transform:
   m_Father: {fileID: 1370460484}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1514113135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514113133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b66279e0e6d954bb1c5c6a50e5dec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    damageType: 0
+    isOver: 0
+    amount: 0
+  weaponStats:
+    Cooldown: 0
+  damagePoint: {fileID: 1723715672}
+  debug: 0
+  animationTime: 0
+  animationIndex: 0
+  bullet: {fileID: 0}
 --- !u!1001 &1550114233
 PrefabInstance:
   m_ObjectHideFlags: 0

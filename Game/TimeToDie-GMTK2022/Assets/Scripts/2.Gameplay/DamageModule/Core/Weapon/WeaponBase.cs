@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
-    [SerializeField] Damage Damage;
-    [SerializeField] WeaponStats weaponStats;
+    [SerializeField] protected Damage Damage;
+    [SerializeField] protected WeaponStats weaponStats;
     [SerializeField] Transform damagePoint;
     [SerializeField] bool debug;
     [SerializeField] protected float animationTime;
     [SerializeField] protected int animationIndex;
     protected RaycastHit[] hitResult;
-    float currentCooldown;
+    protected float currentCooldown;
     public virtual int Attack()
     {
         if (!(currentCooldown - Time.time < 0))
@@ -40,6 +40,9 @@ public class WeaponBase : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(damagePoint.position, Vector3.one);
+        if (debug)
+        {
+            Gizmos.DrawCube(damagePoint.position, Vector3.one);
+        }
     }
 }
