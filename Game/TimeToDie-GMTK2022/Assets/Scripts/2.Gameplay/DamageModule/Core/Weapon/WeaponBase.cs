@@ -7,7 +7,7 @@ public class WeaponBase : MonoBehaviour
 {
     [SerializeField] protected Damage Damage;
     [SerializeField] protected WeaponStats weaponStats;
-    [SerializeField] Transform damagePoint;
+    [SerializeField] protected Transform damagePoint;
     [SerializeField] bool debug;
     [SerializeField] protected float animationTime;
     [SerializeField] protected int animationIndex;

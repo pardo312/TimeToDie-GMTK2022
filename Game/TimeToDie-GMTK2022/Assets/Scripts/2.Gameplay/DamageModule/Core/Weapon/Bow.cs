@@ -28,6 +28,8 @@ public class Bow : WeaponBase
             currentArrow.SetParent(this);
         }
         currentArrow.Init(Mathf.Clamp(force,0,6));
+        currentArrow.transform.position = damagePoint.transform.position;
+        currentArrow.transform.rotation = damagePoint.transform.rotation;
     }
 
     IEnumerator DrawArrow()

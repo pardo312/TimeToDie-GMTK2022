@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerBowState: PlayerStateBase
 {
     float animDuration;
-    int velocityHash;
-    int horizontalHash;
     int isDrawingShot;
     int drawArrowHash;
     public PlayerBowState(PlayerStateMachine player, int animHash, float animDuration) : base(player)
@@ -14,8 +12,6 @@ public class PlayerBowState: PlayerStateBase
         player.RigidBody.velocity = Vector3.zero;
         player.animator.Play(animHash);
         this.animDuration = animDuration;
-        velocityHash = Animator.StringToHash("Velocity");
-        horizontalHash = Animator.StringToHash("HorizontalVelocity");
         drawArrowHash = Animator.StringToHash("DrawArrow");
         isDrawingShot = Animator.StringToHash("IsDrawing");
         player.StartCoroutine(MovementAfterTime());
