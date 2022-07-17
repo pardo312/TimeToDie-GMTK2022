@@ -37,7 +37,7 @@ public class EnemyAttackState : EnemyStateBase
         {
             enemy.animator.Play(enemy.hashAttack);
             if (attackAnimationWaitSeconds == null)
-                attackAnimationWaitSeconds = new WaitForSeconds(enemy.animator.GetCurrentAnimatorStateInfo(0).length);
+                attackAnimationWaitSeconds = new WaitForSeconds(enemy.animator.GetCurrentAnimatorStateInfo(0).length + 1f);
             enemy.StartCoroutine(FinishAttack(attackAnimationWaitSeconds));
         }
     }
