@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c33361ebd05cc46a09c8d3233b48ef, type: 3}
+  m_Name: D20
+  m_EditorClassIdentifier: 
+  diceAngles:
+  - 109.47743
+  - 53.862556
+  - 160.53632
+  - 21.705557
+  - 54.775066
+  - 90.489265
+  - 126.353226
+  - 104.360886
+  - 91.85146
+  - 125.49041
+  - 54.59574
+  - 88.36745
+  - 78.73662
+  - 54.706356
+  - 89.51874
+  - 125.458664
+  - 157.93082
+  - 19.679176
+  - 125.85742
+  - 66.37223
