@@ -5,9 +5,9 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     [SerializeField] Transform panel;
-    public void Home()
+    public void Home(int target)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(target);
     }
 
     public void OpenClose(bool state)
