@@ -1,82 +1,110 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyStateMachine : CharacterStateMachine
+public class EnemyStateMachine : MonoBehaviour, IDamageable
 {
-    public Transform targetPosition, headPosition;
-    public NavMeshPath path;
-    public Rigidbody RigidBody;
-    [Header("Animation")]
-    public int hashVelocity;
-    public int hashAttack, hashSpecialAttack, hashTurn;
+    public EnemyStatistics statistics;
+    public List<Damage> damages = new List<Damage>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        path = new NavMeshPath();
-        hashVelocity = Animator.StringToHash("Velocity");
-        hashAttack = Animator.StringToHash("Attack");
-        hashSpecialAttack = Animator.StringToHash("SpecialAttack");
-        hashTurn = Animator.StringToHash("Turn");
-        SetState(new EnemySeekState(this));
-    }
+    private EnemyStateBase currentState;
+    public string currentStateName = "";
 
-    [SerializeField] private EnemyStateBase currentState;
+    public NavMeshAgent agent;
+    public Animator animator;
+    public Rigidbody rigidBody;
+    public WeaponBase weapon;
 
-    public void SetState(EnemyStateBase state)
-    {
-        currentState = state;
-        stateName = currentState.ToString();
-    }
+    public int hashIdle, hashMovement, hashAttack, hashDeath;
+
+    public EnemyIdleState enemyIdleState;
+    public EnemySeekState enemySeekState;
+    public EnemyAttackState enemyAttackState;
+
 
     private void Awake()
     {
-        SetState(new EnemyDisableState(this));
+        enemyIdleState = new EnemyIdleState(this, nameof(EnemyIdleState));
+        enemySeekState = new EnemySeekState(this, nameof(EnemySeekState));
+        enemyAttackState = new EnemyAttackState(this, nameof(EnemyAttackState));
+
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
+        rigidBody = GetComponent<Rigidbody>();
+        weapon = GetComponentInChildren<WeaponBase>();
+    }
+
+    void Start()
+    {
+        hashIdle = Animator.StringToHash("Idle");
+        hashMovement = Animator.StringToHash("Movement");
+        hashAttack = Animator.StringToHash("Attack");
+        hashDeath = Animator.StringToHash("Death");
+
+        SetState(enemyIdleState);
     }
 
     private void Update()
     {
-        currentState.UpdateState();
-        //currentState.ProcessInput(GameStateMachine.Singleton.InputManager.Move, GameStateMachine.Singleton.InputManager.Look);
+        currentState.UpdateState(Time.deltaTime);
+    }
+
+    public void SetState(EnemyStateBase state)
+    {
+        if (currentState != null)
+            currentState.ExitState();
+        currentState = state;
+        currentStateName = state.name;
+        currentState.EnterState();
     }
 
     private void HandleLevelStageChanged(LevelStage stage)
     {
         if (stage == LevelStage.gameMode)
         {
-            SetState(new EnemySeekState(this));
+            SetState(enemySeekState);
         }
         if (stage == LevelStage.inbetween)
         {
-            SetState(new EnemyDisableState(this));
+            SetState(enemyIdleState);
         }
         if (stage == LevelStage.victory)
         {
-            SetState(new EnemyDisableState(this));
+            SetState(enemyIdleState);
         }
     }
 
-    public override void TakeDamage(float amount)
+    public bool IsAtRange(Vector3 position)
     {
-        base.TakeDamage(amount);
-        //if (stats.life <= 0)
-        //{
-        //    //TODO manage dead state
-        //}
+        return Vector3.Distance(position, transform.position) <= statistics.Range;
     }
 
-    public override void AddDamage(Damage damageTaken)
+    public bool IsPlayerAtRange()
     {
-        base.AddDamage(damageTaken);
-        //animator.Play(getHitHash);
+        return IsAtRange(GameStateMachine.Singleton.Player.transform.position);
     }
 
-    public enum Buttons
+    public void ApplyDamages()
     {
-        Aiming,
-        Jump,
-        Ragdoll
+        if (damages.Count <= 0)
+            return;
+        for (int i = 0; i < damages.Count; i++)
+            damages[i].CalculateDamage();
+        List<Damage> newDamages = new List<Damage>();
+        for (int i = 0; i < damages.Count; i++)
+            if (!damages[i].isOver)
+                newDamages.Add(damages[i]);
+        damages = newDamages;
+    }
+
+    public virtual void AddDamage(Damage damageTaken)
+    {
+        damages.Add(damageTaken);
+    }
+
+    public virtual void TakeDamage(float amount)
+    {
+        //TODO reduce amount to current life: stats.life -= amount;
+        //Show UI damage effect
     }
 }
