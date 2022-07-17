@@ -66,6 +66,10 @@ public class GameStateMachine : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
+        if (state == LevelStage.victory)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
         LevelStage = state;
         OnGameStateChanged?.Invoke(LevelStage);
     }

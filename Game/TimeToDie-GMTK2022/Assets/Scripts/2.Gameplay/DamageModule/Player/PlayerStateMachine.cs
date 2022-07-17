@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TimeToDie.DataManagerModule;
 using UnityEngine;
 
 public class PlayerStateMachine : CharacterStateMachine
@@ -91,10 +92,12 @@ public class PlayerStateMachine : CharacterStateMachine
         if (stage == LevelStage.victory)
         {
             SetState(new PlayerDisableState(this));
+            DataManager.instance.currentLevel++;
         }
         if (stage == LevelStage.loose)
         {
             SetState(new PlayerDisableState(this));
+            DataManager.instance.currentLevel = 1;
         }
     }
 
@@ -116,7 +119,7 @@ public class PlayerStateMachine : CharacterStateMachine
         if (Stats.life <= 0)
         {
             GameStateMachine.Singleton.SetLevelState(LevelStage.loose);
-            
+
         }
         //animator.Play(getHitHash);
     }

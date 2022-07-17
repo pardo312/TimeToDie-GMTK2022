@@ -1,13 +1,11 @@
 {
-    "name": "BoardModule",
+    "name": "EnemyModule",
     "rootNamespace": "",
     "references": [
-        "GUID:c689aeeed29a1054e99678c638372fa2",
-        "GUID:05ef69965ec547448ab08eb9f2cf9328",
-        "GUID:e30671efe8fb3df43b23f987263eb20e",
-        "GUID:9ba0b717238a1d54a82927d23e2091ba",
         "GUID:765b1c5f8dd8c8a429d283db3bf71533",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:24bc4bfe5cb944c4db2c3de50ecd6f41",
+        "GUID:44128c16df80f9147a41fd3c7edb8aca"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
