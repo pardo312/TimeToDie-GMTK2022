@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBowState: PlayerStateBase
 {
+    Coroutine routine;
     float animDuration;
     int isDrawingShot;
     int drawArrowHash;
@@ -13,25 +14,21 @@ public class PlayerBowState: PlayerStateBase
         player.animator.Play(animHash);
         this.animDuration = animDuration;
         drawArrowHash = Animator.StringToHash("DrawArrow");
-        isDrawingShot = Animator.StringToHash("IsDrawing");
-        player.StartCoroutine(MovementAfterTime());
+        isDrawingShot = Animator.StringToHash("Draw");
         player.animator.SetBool(isDrawingShot, true);
         player.animator.Play(drawArrowHash);
+        routine = player.StartCoroutine(MovementAfterTime());
     }
 
     public override void ProcessInput(Vector2 movement, Vector3 look)
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            player.animator.SetBool(isDrawingShot, false);
-            player.SetState(new MovementState(player));
-        }
         player.transform.LookAt(new Vector3(look.x, player.transform.position.y, look.z));
+        Debug.Log("i am in procees input");
     }
 
     public override void ReceivedEvent(PlayerStateMachine.Buttons buttons)
     {
-
+        
     }
 
     IEnumerator MovementAfterTime()
@@ -43,6 +40,11 @@ public class PlayerBowState: PlayerStateBase
 
     public override void UpdateState()
     {
-
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            player.animator.SetBool(isDrawingShot, false);
+            player.StopCoroutine(routine);
+            player.SetState(new MovementState(player));
+        }
     }
 }

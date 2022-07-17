@@ -27,9 +27,14 @@ public class Bow : WeaponBase
             currentArrow = Instantiate(bullet).GetComponent<Arrow>();
             currentArrow.SetParent(this);
         }
-        currentArrow.Init(Mathf.Clamp(force,0,6));
+        currentArrow.Init(Mathf.Clamp(force/2,0,6),Mathf.Clamp(RuleOfThree(6,20,force),15,20));
         currentArrow.transform.position = damagePoint.transform.position;
         currentArrow.transform.rotation = damagePoint.transform.rotation;
+    }
+
+    public float RuleOfThree(float a, float b, float c)
+    {
+        return (c * b) / a;
     }
 
     IEnumerator DrawArrow()
@@ -38,7 +43,7 @@ public class Bow : WeaponBase
         {
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                DrawProjectil(Mathf.Abs(tensionTime));
+                DrawProjectil(Mathf.Abs(tensionTime - Time.time));
                 break;
             }
             yield return null;
