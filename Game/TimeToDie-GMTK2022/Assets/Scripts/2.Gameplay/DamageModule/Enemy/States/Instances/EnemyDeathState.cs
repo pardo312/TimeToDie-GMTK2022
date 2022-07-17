@@ -16,7 +16,7 @@ public class EnemyDeathState : EnemyStateBase
         enemy.animator.Play(enemy.hashDeath);
 
         if (deathAnimationWaitSeconds == null)
-            deathAnimationWaitSeconds = new WaitForSeconds(enemy.animator.GetCurrentAnimatorStateInfo(0).length + 0.5f);
+            deathAnimationWaitSeconds = new WaitForSeconds(enemy.durationDeath + 1f);
 
         enemy.StartCoroutine(FinishDeath(deathAnimationWaitSeconds));
     }

@@ -16,6 +16,7 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
     public WeaponBase weapon;
 
     public int hashIdle, hashMovement, hashAttack, hashDeath, hashTakeDamage;
+    public float durationIdle, durationMovement, durationAttack, durationDeath, durationTakeDamage;
 
     public EnemyIdleState enemyIdleState;
     public EnemySeekState enemySeekState;
@@ -35,6 +36,8 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
         animator = GetComponentInChildren<Animator>();
         rigidBody = GetComponent<Rigidbody>();
         weapon = GetComponentInChildren<WeaponBase>();
+
+        GameStateMachine.Singleton.OnGameStateChanged += HandleLevelStageChanged;
     }
 
     void Start()
@@ -74,6 +77,10 @@ public class EnemyStateMachine : MonoBehaviour, IDamageable
             SetState(enemyIdleState);
         }
         if (stage == LevelStage.victory)
+        {
+            SetState(enemyIdleState);
+        }
+        if (stage == LevelStage.loose)
         {
             SetState(enemyIdleState);
         }
