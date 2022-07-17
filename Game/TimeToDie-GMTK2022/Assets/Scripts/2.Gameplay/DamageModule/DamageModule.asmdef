@@ -2,7 +2,8 @@
     "name": "DamageModule",
     "rootNamespace": "",
     "references": [
-        "GUID:765b1c5f8dd8c8a429d283db3bf71533"
+        "GUID:765b1c5f8dd8c8a429d283db3bf71533",
+        "GUID:24bc4bfe5cb944c4db2c3de50ecd6f41"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

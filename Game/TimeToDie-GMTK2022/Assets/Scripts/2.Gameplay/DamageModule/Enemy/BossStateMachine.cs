@@ -1,3 +1,4 @@
+using Jiufen.Audio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,6 +37,10 @@ public class BossStateMachine : MonoBehaviour, IDamageable
         rigidBody = GetComponent<Rigidbody>();
         SetState(new BossDisableState(this));
         GameStateMachine.Singleton.OnGameStateChanged += HandleLevelStageChanged;
+    }
+    public void Start()
+    {
+        AudioManager.PlayAudio("BOSS", new AudioJobOptions() { loop = true });
     }
 
     private void Update()
