@@ -18,7 +18,10 @@ public class EnemyAttackState : EnemyStateBase
 
     public override void UpdateState(float deltaTime) { }
 
-    public override void ExitState() { }
+    public override void ExitState() 
+    {
+        enemy.StopAllCoroutines();
+    }
 
     public override void ProcessInput(Vector2 movement, Vector3 look) { }
 

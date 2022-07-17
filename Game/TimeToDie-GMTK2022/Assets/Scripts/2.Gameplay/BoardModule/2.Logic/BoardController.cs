@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TimeToDie.BoardModule;
 using TimeToDie.DataManagerModule;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,15 +20,26 @@ namespace TimeToDie
         public CanvasGroup mainMenu;
         public GameObject collidersMap;
         public CanvasGroup fadeGroup;
+        public TMP_Text levelValue;
 
         [Header("Dices")]
         public List<DiceRoll> dicesPrefab;
         public List<DiceRoll> currentDiceGroup;
         public List<Transform> dicePositions;
         public int currentDie;
+        public void Start()
+        {
+            if (DataManager.instance.currentLevel != -1)
+            {
+                levelValue.text = DataManager.instance.currentLevel.ToString();
+                mainMenu.gameObject.SetActive(false);
+                StartCoroutine(GivePlayerGroupOfDice());
+            }
+        }
 
         public void InitPlay()
         {
+
             StartCoroutine(HideMainMenu(() =>
                 StartCoroutine(GivePlayerGroupOfDice())
             ));

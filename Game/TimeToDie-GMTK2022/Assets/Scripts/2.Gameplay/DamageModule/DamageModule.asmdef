@@ -1,0 +1,16 @@
+{
+    "name": "DamageModule",
+    "rootNamespace": "",
+    "references": [
+        "GUID:765b1c5f8dd8c8a429d283db3bf71533"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

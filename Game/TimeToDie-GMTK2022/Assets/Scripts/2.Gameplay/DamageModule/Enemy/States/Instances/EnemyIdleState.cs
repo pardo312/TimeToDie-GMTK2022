@@ -26,6 +26,7 @@ public class EnemyIdleState : EnemyStateBase
 
     public override void ExitState()
     {
+        enemy.StopAllCoroutines();
     }
 
     public override void ProcessInput(Vector2 movement, Vector3 look)

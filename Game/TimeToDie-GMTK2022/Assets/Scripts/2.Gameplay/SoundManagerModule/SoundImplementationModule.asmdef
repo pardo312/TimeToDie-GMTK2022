@@ -1,0 +1,16 @@
+{
+    "name": "MusicPartsRandomizerModule",
+    "rootNamespace": "",
+    "references": [
+        "GUID:24bc4bfe5cb944c4db2c3de50ecd6f41"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

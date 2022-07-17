@@ -88,7 +88,8 @@ namespace TimeToDie
         private Collision currentCollision = null;
         private void OnCollisionEnter(Collision other)
         {
-            currentCollision = other;
+            if(other.gameObject.tag == "Card")
+                currentCollision = other;
         }
 
         public float DeClamp(float OldMin, float OldMax, float NewMin, float NewMax, float valueToTest)

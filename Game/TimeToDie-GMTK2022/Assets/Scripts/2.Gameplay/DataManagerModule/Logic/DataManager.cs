@@ -22,7 +22,8 @@ namespace TimeToDie.DataManagerModule
         #endregion ----Singleton----
 
         #region ----Data----
-        public List<EnemyInitData> enemiesData;
+        public List<EnemyInitData> enemiesData = new List<EnemyInitData>();
+        public int currentLevel = 0;
         #endregion ----Data----
 
     }
