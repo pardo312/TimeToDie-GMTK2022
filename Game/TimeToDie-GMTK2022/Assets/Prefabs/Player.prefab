@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &327970880118126750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2653992517004015037}
+  m_Layer: 0
+  m_Name: BowDamagePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2653992517004015037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327970880118126750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.81, z: 0.776}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8483459212851224656}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8483459211139287702
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,7 +54,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8483459211139287702}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.81, z: 1.158}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -82,7 +113,7 @@ MonoBehaviour:
   weaponStats:
     Cooldown: 1.267
   damagePoint: {fileID: 8483459211139287703}
-  debug: 1
+  debug: 0
   animationTime: 0.6
   animationIndex: 0
 --- !u!1 &8483459211492436592
@@ -168,7 +199,7 @@ MonoBehaviour:
   weaponStats:
     Cooldown: 1.267
   damagePoint: {fileID: 8483459212164292940}
-  debug: 1
+  debug: 0
   animationTime: 0.6
   animationIndex: 0
   backForce: 600
@@ -240,6 +271,7 @@ Transform:
   - {fileID: 8483459213028440442}
   - {fileID: 8483459212164292940}
   - {fileID: 8483459211139287703}
+  - {fileID: 2653992517004015037}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -353,7 +385,7 @@ MonoBehaviour:
     amount: 0
   weaponStats:
     Cooldown: 0
-  damagePoint: {fileID: 8483459212164292940}
+  damagePoint: {fileID: 2653992517004015037}
   debug: 0
   animationTime: 0.6
   animationIndex: 0

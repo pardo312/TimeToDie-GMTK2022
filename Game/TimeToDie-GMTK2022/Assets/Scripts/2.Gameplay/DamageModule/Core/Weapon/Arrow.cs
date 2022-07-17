@@ -14,15 +14,15 @@ public class Arrow : MonoBehaviour
         arrowVelocity = velocity;
         StartCoroutine(FlyArrow(flyTime));
     }
-    
+
     IEnumerator FlyArrow(float flyTime)
     {
         float duration = Time.time + flyTime;
         while (duration - Time.time > 0)
         {
-            RigidBody.velocity = transform.forward * arrowVelocity + Vector3.down * 1f;
-            Ray attackRay = new Ray(transform.position,transform.forward);
-            Debug.DrawRay(attackRay.origin,attackRay.direction,Color.red);
+            RigidBody.velocity = transform.forward * arrowVelocity;
+            Ray attackRay = new Ray(transform.position, transform.forward);
+            Debug.DrawRay(attackRay.origin, attackRay.direction, Color.red);
             bool impact = false;
             foreach (var hit in Physics.RaycastAll(attackRay, 1, LayerMask.GetMask("Enemy")))
             {
@@ -38,8 +38,15 @@ public class Arrow : MonoBehaviour
                 break;
             yield return null;
         }
-        RigidBody.velocity = Vector3.down * 2f;
-        yield return new WaitForSeconds(3);
+        float elapseTime = 3;
+        while (elapseTime > 0)
+        {
+            arrowVelocity -= Time.deltaTime;
+            RigidBody.velocity = transform.forward * arrowVelocity + Vector3.down * 4.8f;
+            transform.LookAt(transform.position + RigidBody.velocity.normalized);
+            elapseTime -= Time.deltaTime;
+            yield return null;
+        }
         parent.arrows.Enqueue(this);
         gameObject.SetActive(false);
     }
