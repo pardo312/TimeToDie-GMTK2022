@@ -1,4 +1,5 @@
 using Jiufen.Audio;
+using System.Collections;
 using System.Collections.Generic;
 using TimeToDie.DataManagerModule;
 using TMPro;
@@ -17,12 +18,12 @@ namespace TimeToDie.EnemyModule
         public void Start()
         {
             levelLabelText.text = DataManager.instance?.currentLevel.ToString();
-            SpawnEnemies();
+            StartCoroutine(SpawnEnemies());
         }
 
-        public void SpawnEnemies()
+        public IEnumerator SpawnEnemies()
         {
-            DataManager.instance.enemiesData.ForEach(enemyData =>
+            foreach (var enemyData in DataManager.instance.enemiesData)
             {
                 for (int i = 0; i < enemyData.numberOfEnemies; i++)
                 {
@@ -30,9 +31,10 @@ namespace TimeToDie.EnemyModule
                                                    spawnPoints[Random.Range(0, spawnPoints.Count)].position,
                                                    Quaternion.identity);
 
-                    //enemy.transform.position += new Vector3(Random.Range(0, 5), 0, Random.Range(0, 5));
+                    if (i % 4 == 0)
+                        yield return new WaitForSeconds(Random.Range(30, 60));
                 }
-            });
+            }
         }
 
     }

@@ -1678,10 +1678,6 @@ MonoBehaviour:
   dicePositions:
   - {fileID: 1077430669}
   - {fileID: 1974457626}
-  - {fileID: 1919653951}
-  - {fileID: 1974457626}
-  - {fileID: 457088423}
-  - {fileID: 2085424643}
   currentDie: 0
 --- !u!4 &316411783
 Transform:
@@ -2287,12 +2283,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03070ba6403d29542b5be52960ab6214, type: 3}
---- !u!4 &457088423 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6266597662869355657, guid: 17d80bc5e45dc1240a63578fb77d7bfe,
-    type: 3}
-  m_PrefabInstance: {fileID: 7617200666324278905}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &467062491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8624,12 +8614,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1976108402}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1919653951 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4534726212276814395, guid: 17d80bc5e45dc1240a63578fb77d7bfe,
-    type: 3}
-  m_PrefabInstance: {fileID: 7617200666324278905}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1938569708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9494,12 +9478,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 843049207191226659, guid: 03070ba6403d29542b5be52960ab6214,
     type: 3}
   m_PrefabInstance: {fileID: 1364164005}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2085424643 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4374497189589487680, guid: 17d80bc5e45dc1240a63578fb77d7bfe,
-    type: 3}
-  m_PrefabInstance: {fileID: 7617200666324278905}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2094160349
 PrefabInstance:
