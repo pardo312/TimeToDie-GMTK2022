@@ -1,15 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 namespace TimeToDie
 {
     public class CameraController : MonoBehaviour
     {
-        public Animator animator;
+        private CinemachineStateDrivenCamera cinemachineStateCamera;
+        private Animator animator;
+        public void Awake()
+        {
+            animator = GetComponent<Animator>();
+            cinemachineStateCamera = GetComponent<CinemachineStateDrivenCamera>();
+        }
         public void ChangeCamera(string cameraBoard)
         {
             animator.SetTrigger(cameraBoard);
+        }
+        public void ChangeTarget(Transform target, bool isLookAt = false)
+        {
+            if (isLookAt)
+                cinemachineStateCamera.LookAt = target;
+            else
+                cinemachineStateCamera.Follow = target;
         }
     }
 

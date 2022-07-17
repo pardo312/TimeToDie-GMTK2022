@@ -12,40 +12,78 @@ namespace TimeToDie
         public CameraController camController;
         public CanvasGroup mainMenu;
         public ShowEnemyCard showEnemyCard;
-        public List<DiceRoll> dice;
+        public GameObject collidersMap;
+
+        public List<DiceRoll> dicesPrefab;
+        public List<DiceRoll> currentDiceGroup;
+        public int currentDie;
+        public List<Transform> dicePositions;
 
         public void InitPlay()
         {
-            StartCoroutine(HideMainMenu());
+            StartCoroutine(HideMainMenu(() =>
+                StartCoroutine(GivePlayerGroupOfDice())
+            ));
         }
 
-        IEnumerator HideMainMenu()
+        public IEnumerator GivePlayerGroupOfDice()
+        {
+            currentDiceGroup = new List<DiceRoll>();
+            currentDie = 0;
+            for (int i = 0; i < dicePositions.Count; i++)
+            {
+                DiceRoll newDie = Instantiate(dicesPrefab[UnityEngine.Random.Range(0, dicesPrefab.Count)], dicePositions[i].position, dicePositions[i].rotation);
+                currentDiceGroup.Add(newDie);
+                camController.ChangeCamera(CamerasBoard.DIE_CAM);
+                if (i == 0)
+                    newDie.useMouseInput = true;
+                camController.ChangeTarget(newDie.transform);
+
+                yield return new WaitForSeconds(2f);
+            }
+            camController.ChangeTarget(currentDiceGroup[0].transform);
+            camController.ChangeCamera(CamerasBoard.GENERAL_CAM);
+
+            yield return new WaitForSeconds(2);
+
+            camController.ChangeCamera(CamerasBoard.FOCUS_CAM);
+            showEnemyCard.Init(camController);
+            enemyCards.SpawnEnemyCards(() =>
+            {
+                currentDiceGroup.ForEach(die =>
+                {
+                    die.Init();
+                    die.onDiceRolled += (dieNumber, other) => GetCardAndDieNumber(dieNumber, other, die);
+                });
+            });
+        }
+
+        IEnumerator HideMainMenu(Action onComplete)
         {
             while (mainMenu.alpha > 0)
             {
                 mainMenu.alpha -= 0.5f * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
-
-            camController.ChangeCamera(CamerasBoard.FOCUS_CAM);
-            enemyCards.SpawnEnemyCards();
-            showEnemyCard.Init(camController);
-            dice.ForEach(die =>
-            {
-                die.Init();
-                die.onDiceRolled += GetCardAndDieNumber;
-            });
+            onComplete?.Invoke();
         }
-        public void GetCardAndDieNumber(int dieNumber, Collision other)
+
+        public void GetCardAndDieNumber(int dieNumber, Collision other, DiceRoll die)
         {
             camController.ChangeCamera(CamerasBoard.DIE_CAM);
-            StartCoroutine(WaitForSeconds(1, () =>
+            StartCoroutine(WaitForSeconds(2, () =>
              {
+                 collidersMap.SetActive(false);
                  camController.ChangeCamera(CamerasBoard.SHOW_ENEMY_CARD_CAM);
-                 showEnemyCard.SetCardInPosition(dieNumber,other);
-
+                 showEnemyCard.SetCardInPosition(dieNumber, other, die, (enemyIndex) =>
+                   {
+                       //Next die
+                       currentDie++;
+                       currentDiceGroup[currentDie].useMouseInput = true;
+                       camController.ChangeTarget(currentDiceGroup[currentDie].transform);
+                       collidersMap.SetActive(true);
+                   });
              }));
-            Debug.Log("Number:" + dieNumber);
         }
         IEnumerator WaitForSeconds(float seconds, Action callback)
         {

@@ -17,14 +17,14 @@ namespace TimeToDie
 
         private Camera cam;
         private Rigidbody rb;
-        private bool shouldRotate = false;
         private bool ready = false;
         #endregion ----Fields----
 
         #region ----Methods---
         #region <<<Unity Methods>>>
-        public void Awake()
+        public void Init()
         {
+            ready = true;
             cam = Camera.main;
             rb = GetComponent<Rigidbody>();
         }
@@ -38,10 +38,6 @@ namespace TimeToDie
                 DieToMouse();
         }
 
-        public void Init()
-        {
-            ready = true;
-        }
         #endregion <<<Unity Methods>>>
 
         #region <<<Dice to mouse>>>
@@ -51,7 +47,6 @@ namespace TimeToDie
 
             if (Input.GetMouseButtonDown(0))
             {
-                rb.isKinematic = true;
                 if (waitToStopCoroutine == null)
                     return;
                 StopCoroutine(waitToStopCoroutine);
@@ -67,6 +62,7 @@ namespace TimeToDie
             else if (Input.GetMouseButtonUp(0))
             {
                 rb.isKinematic = false;
+                useMouseInput = false;
                 waitToStopCoroutine = StartCoroutine(WaitForDieToStop());
             }
         }
@@ -76,14 +72,16 @@ namespace TimeToDie
         {
 
             yield return new WaitUntil(() => currentCollision != null);
+            var lastCollision = currentCollision;
             while (currentCollision != null)
             {
+                lastCollision = currentCollision;
                 currentCollision = null;
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(1f);
             }
-
             dieRoll = GetRollOfDie(transform.up);
-            onDiceRolled?.Invoke(dieRoll, currentCollision);
+            rb.isKinematic = true;
+            onDiceRolled?.Invoke(dieRoll, lastCollision);
             currentCollision = null;
 
         }

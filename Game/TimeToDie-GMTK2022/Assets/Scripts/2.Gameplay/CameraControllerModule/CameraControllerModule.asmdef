@@ -1,11 +1,8 @@
 {
-    "name": "BoardModule",
+    "name": "CameraControllerModule",
     "rootNamespace": "",
     "references": [
-        "GUID:c689aeeed29a1054e99678c638372fa2",
-        "GUID:05ef69965ec547448ab08eb9f2cf9328",
-        "GUID:e30671efe8fb3df43b23f987263eb20e",
-        "GUID:9ba0b717238a1d54a82927d23e2091ba"
+        "GUID:4307f53044263cf4b835bd812fc161a4"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

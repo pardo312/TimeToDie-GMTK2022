@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -22,12 +23,12 @@ namespace TimeToDie.BoardModule
 
         #region ----Methods----
         [ContextMenu("Spawn cards")]
-        public void SpawnEnemyCards()
+        public void SpawnEnemyCards(Action onComplete = null)
         {
-            StartCoroutine(SpawnCards());
+            StartCoroutine(SpawnCards(onComplete ));
         }
 
-        public IEnumerator SpawnCards()
+        public IEnumerator SpawnCards(Action onComplete)
         {
             LeanTween.cancelAll();
             int numberOfRows = Mathf.CeilToInt(numberOfCards * 1f / MAX_CARDS_ON_ROW);
@@ -49,6 +50,7 @@ namespace TimeToDie.BoardModule
                     yield return new WaitForSeconds(animationTime);
                 }
             }
+            onComplete?.Invoke();
         }
         #endregion ----Methods----
     }

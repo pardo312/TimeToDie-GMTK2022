@@ -131,4 +131,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diceAngles: {fileID: 11400000, guid: 19b4c12cf91f1d043baa044a81aef0a3, type: 2}
   dieRoll: 0
+  useMouseInput: 0
   epsilonDeg: 1
