@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using TimeToDie.DataManagerModule;
 
 public class GameStateMachine : MonoBehaviour
 {
@@ -64,11 +65,13 @@ public class GameStateMachine : MonoBehaviour
         }
         if (state == LevelStage.loose)
         {
+            DataManager.instance.currentLevel = 1;
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
         if (state == LevelStage.victory)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            DataManager.instance.currentLevel++;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
         }
         LevelStage = state;
         OnGameStateChanged?.Invoke(LevelStage);

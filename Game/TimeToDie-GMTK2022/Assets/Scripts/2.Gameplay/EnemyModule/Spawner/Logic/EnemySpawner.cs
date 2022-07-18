@@ -18,7 +18,7 @@ namespace TimeToDie.EnemyModule
         public void Start()
         {
             levelLabelText.text = DataManager.instance?.currentLevel.ToString();
-            if (!(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "boss"))
+            if (!(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Boss"))
             {
                 StartCoroutine(SpawnEnemies());
             }
@@ -45,6 +45,8 @@ namespace TimeToDie.EnemyModule
                         yield return new WaitForSeconds(Random.Range(30, 60));
                 }
             }
+            yield return new WaitForSeconds(10);
+            GameStateMachine.Singleton.SetLevelState(LevelStage.victory);
         }
 
     }
