@@ -4,27 +4,42 @@ using UnityEngine;
 
 public class MovementState : PlayerStateBase
 {
-    int verticalHash;
+    int velocityHash;
     int horizontalHash;
     public MovementState(PlayerStateMachine player) : base(player)
     {
         this.player = player;
-        verticalHash = Animator.StringToHash("isMoving");
-        horizontalHash = Animator.StringToHash("isRotating");
+        velocityHash = Animator.StringToHash("Velocity");
+        horizontalHash = Animator.StringToHash("HorizontalVelocity");
     }
 
-    public override void ProcessInput(Vector2 movement, Vector2 look)
+    public override void ProcessInput(Vector2 movement, Vector3 look)
     {
-        player.AnimationBaseController.Animator.SetFloat(verticalHash, movement.y);
-        player.AnimationBaseController.Animator.SetFloat(horizontalHash, movement.x);
+        player.Indicator.transform.position = look;
+        player.RigidBody.velocity = (player.transform.forward * movement.y + player.transform.right * movement.x).normalized * player.Stats.Velocity * 100 * Time.deltaTime;
+        player.transform.LookAt(new Vector3(look.x,player.transform.position.y,look.z));
+        player.animator.SetFloat(velocityHash, movement.y);
+        player.animator.SetFloat(horizontalHash, movement.x);
     }
 
     public override void ReceivedEvent(PlayerStateMachine.Buttons buttons)
     {
-
+        if(buttons == PlayerStateMachine.Buttons.Attack)
+        {
+            int currentHash = player.attackHashes[player.Weapons[player.currentWeapon].Attack()];
+            if (player.currentWeapon == 2)
+            {
+                player.SetState(new PlayerBowState(player, currentHash, 6));
+            }
+            else if (currentHash != -1)
+            {
+                player.SetState(new PlayerAttackState(player, currentHash, player.WeaponDuration[player.currentWeapon]));
+            }
+        }
     }
 
     public override void UpdateState()
     {
+
     }
 }
